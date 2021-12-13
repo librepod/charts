@@ -3,6 +3,16 @@ entries:
   unbound:
   - apiVersion: v2
     appVersion: 1.13.1
+    created: "2021-12-13T19:25:48.333145149Z"
+    description: A Helm chart for Kubernetes
+    digest: 6204a356dcf2903ef744772573f4bb753b912490a4349c5130eaccf1f03a7896
+    name: unbound
+    type: application
+    urls:
+    - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.2/unbound-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.13.1
     created: "2021-12-13T19:15:27.990149515Z"
     description: A Helm chart for Kubernetes
     digest: b5f639a32cabba2c6c390433d44bc50cf5e2ea5d634fc786edd70e477da93730
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-13T19:15:27.990158215Z"
+generated: "2021-12-13T19:25:48.333156849Z"
