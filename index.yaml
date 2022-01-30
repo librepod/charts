@@ -1,6 +1,23 @@
 apiVersion: v1
 entries:
   unbound:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 1.14.0
+    created: "2022-01-30T16:43:37.786212723Z"
+    description: Unbound is a validating, recursive, caching DNS resolver. It is designed
+      to be fast and lean and incorporates modern features based on open standards
+    digest: 85227cf2d582abeb69f5653c9a4b86e45d860787b7fcbd118616f60ed7418832
+    home: https://nlnetlabs.nl/projects/unbound
+    icon: https://nlnetlabs.nl/static/logos/Unbound/Unbound_FC_Shaded_cropped.svg
+    name: unbound
+    sources:
+    - https://github.com/NLnetLabs/unbound
+    type: application
+    urls:
+    - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.2.0/unbound-0.2.0.tgz
+    version: 0.2.0
   - apiVersion: v2
     appVersion: 1.13.1
     created: "2021-12-13T19:25:48.333145149Z"
@@ -31,4 +48,4 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-13T19:25:48.333156849Z"
+generated: "2022-01-30T16:43:37.786226823Z"
