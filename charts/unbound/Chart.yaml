@@ -1,6 +1,12 @@
+annotations:
+  category: Infrastructure
 apiVersion: v2
 name: unbound
-description: A Helm chart for Kubernetes
+description: Unbound is a validating, recursive, caching DNS resolver. It is designed to be fast and lean and incorporates modern features based on open standards
+home: https://nlnetlabs.nl/projects/unbound
+icon: https://nlnetlabs.nl/static/logos/Unbound/Unbound_FC_Shaded_cropped.svg
+sources:
+  - https://github.com/NLnetLabs/unbound
 type: application
-version: 0.1.2
-appVersion: "1.13.1"
+version: 0.2.0
+appVersion: 1.14.0
