@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "hajimari.fullname" . }}-settings
+  labels:
+    app: {{ template "hajimari.name" . }}
+    chart: {{ template "hajimari.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  config.yaml: |-
+{{ toYaml .Values.hajimari | indent 4 }}

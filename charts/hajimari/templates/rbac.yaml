@@ -1,0 +1,33 @@
+{{- if .Values.serviceAccount.create }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ template "hajimari.fullname" . }}
+  labels:
+    app: {{ template "hajimari.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+rules:
+- apiGroups: ["", "extensions", "networking.k8s.io"]
+  resources: ["ingresses", "namespaces"]
+  verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ template "hajimari.fullname" . }}
+  labels:
+    app: {{ template "hajimari.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ include "common.names.fullname" . }}
+subjects:
+- kind: ServiceAccount
+  name: {{ include "common.names.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+{{- end }}
