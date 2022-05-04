@@ -57,9 +57,7 @@ hajimari:
 # @default -- See values.yaml
 service:
   type: ClusterIP
-  ports:
-    http:
-      port: 3000
+  port: 3000
 
 # -- Configures service account needed for reading k8s ingress objects
 # @default -- See below
