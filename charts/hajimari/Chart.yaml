@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: v0.2.0
 description: |
-    Hajimari is a beautiful & customizable browser startpage/dashboard with 
+    Hajimari is a beautiful & customizable browser startpage/dashboard with
     Kubernetes application discovery
 name: hajimari
 version: 0.1.0
