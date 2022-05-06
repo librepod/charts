@@ -1,5 +1,28 @@
 apiVersion: v1
 entries:
+  hajimari:
+  - apiVersion: v2
+    appVersion: v0.2.0
+    created: "2022-05-06T19:26:38.766647809Z"
+    description: 'Hajimari is a beautiful & customizable browser startpage/dashboard
+      with Kubernetes application discovery '
+    digest: 754844ea4cd440c802bd2ddfc545125a0e9160feccab7172aa169cd193e7a099
+    home: https://github.com/librepod/charts/tree/master/charts/hajimari
+    icon: https://raw.githubusercontent.com/toboshii/hajimari/main/docs/static/img/logo.png
+    keywords:
+    - hajimari
+    - startpage
+    - dashboard
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: toboshii@users.noreply.github.com
+      name: toboshii
+    name: hajimari
+    sources:
+    - https://github.com/toboshii/hajimari
+    urls:
+    - https://github.com/librepod/charts/releases/download/hajimari-0.1.0/hajimari-0.1.0.tgz
+    version: 0.1.0
   pihole:
   - apiVersion: v1
     appVersion: 2022.01.1
@@ -68,4 +91,4 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-09T20:10:34.317176139Z"
+generated: "2022-05-06T19:26:38.766755109Z"
