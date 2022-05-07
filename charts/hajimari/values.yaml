@@ -4,6 +4,9 @@
 # This chart inherits from the k8s@home library chart. You can check the default values/options here:
 # https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
 #
+replicaCount: 1
+autoscaling:
+  enabled: false
 
 image:
   # -- image repository
