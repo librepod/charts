@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ template "hajimari.fullname" . }}
+  name: {{ template "hajimari.serviceAccountName" . }}
   labels:
     app: {{ template "hajimari.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
@@ -16,7 +16,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: {{ template "hajimari.fullname" . }}
+  name: {{ template "hajimari.serviceAccountName" . }}
   labels:
     app: {{ template "hajimari.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
@@ -25,9 +25,9 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ include "common.names.fullname" . }}
+  name: {{ include "hajimari.serviceAccountName" . }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "common.names.fullname" . }}
+  name: {{ include "hajimari.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
 {{- end }}

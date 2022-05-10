@@ -27,14 +27,18 @@ hajimari:
       url: 'https://dropbox.com'
     - name: Drive
       url: 'https://drive.google.com'
+
 ingress:
-  main:
-    enabled: true
-    hosts:
-      - host: hajimari.domain.tld
-        paths:
-          - path: /
-            pathType: Prefix
+  enabled: true
+  hosts:
+    - host: hajimari.domain.tld
+      paths:
+        - path: /
+          pathType: Prefix
+
 persistence:
   data:
     enabled: true
+
+serviceAccount:
+  create: true
