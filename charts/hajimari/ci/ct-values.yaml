@@ -32,7 +32,7 @@ ingress:
   enabled: false
 
 persistence:
-  enabled: true
+  enabled: false
 
 serviceAccount:
   create: true
