@@ -111,6 +111,16 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/hajimari-0.1.0/hajimari-0.1.0.tgz
     version: 0.1.0
+  librepod:
+  - apiVersion: v2
+    created: "2022-06-19T18:04:54.80998308Z"
+    description: A Helm library chart for LibrePod specific Kubernetes clusters
+    digest: 0cce5b5033f2d0bb670b19aca79395db60e3a2999d0000e04662390e7a0a626e
+    name: librepod
+    type: library
+    urls:
+    - https://github.com/librepod/charts/releases/download/librepod-0.1.0/librepod-0.1.0.tgz
+    version: 0.1.0
   pihole:
   - apiVersion: v1
     appVersion: 2022.01.1
@@ -179,4 +189,4 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
-generated: "2022-05-10T19:26:44.617395201Z"
+generated: "2022-06-19T18:04:54.810094281Z"
