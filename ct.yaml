@@ -1,0 +1,7 @@
+chart-dirs:
+  - charts
+chart-repos:
+  - librepod=https://librepod.github.io/charts
+validate-maintainers: false
+excluded-charts:
+  - librepod

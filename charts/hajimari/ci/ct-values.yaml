@@ -29,16 +29,10 @@ hajimari:
       url: 'https://drive.google.com'
 
 ingress:
-  enabled: true
-  hosts:
-    - host: hajimari.domain.tld
-      paths:
-        - path: /
-          pathType: Prefix
+  enabled: false
 
 persistence:
-  data:
-    enabled: true
+  enabled: false
 
 serviceAccount:
   create: true

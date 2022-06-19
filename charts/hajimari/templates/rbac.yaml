@@ -2,12 +2,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ template "hajimari.serviceAccountName" . }}
+  name: {{ template "librepod.names.serviceAccountName" . }}
   labels:
-    app: {{ template "hajimari.name" . }}
-    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+    {{- include "librepod.names.labels" . | nindent 4 }}
 rules:
 - apiGroups: ["", "extensions", "networking.k8s.io"]
   resources: ["ingresses", "namespaces"]
@@ -16,18 +13,15 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: {{ template "hajimari.serviceAccountName" . }}
+  name: {{ template "librepod.names.serviceAccountName" . }}
   labels:
-    app: {{ template "hajimari.name" . }}
-    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+    {{- include "librepod.names.labels" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ include "hajimari.serviceAccountName" . }}
+  name: {{ include "librepod.names.serviceAccountName" . }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "hajimari.serviceAccountName" . }}
+  name: {{ include "librepod.names.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
 {{- end }}
