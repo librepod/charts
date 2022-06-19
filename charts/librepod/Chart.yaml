@@ -1,0 +1,5 @@
+apiVersion: v2
+name: librepod
+description: A Helm library chart for LibrePod specific Kubernetes clusters
+type: library
+version: 0.1.0

@@ -16,7 +16,7 @@ jobs:
         uses: helm/chart-testing-action@v2.1.0
 
       - name: Run chart-testing (lint)
-        run: ct lint
+        run: ct lint --excluded-charts=librepod
 
   test:
     runs-on: ubuntu-latest
@@ -34,4 +34,4 @@ jobs:
         uses: helm/kind-action@v1.2.0
 
       - name: Run chart-testing (install)
-        run: ct install
+        run: ct install --excluded-charts=librepod

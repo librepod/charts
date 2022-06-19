@@ -1,0 +1,17 @@
+{{- define "librepod.service" -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "librepod.names.fullname" . }}
+  labels:
+    {{- include "librepod.names.labels" . | nindent 4 }}
+spec:
+  type: {{ default "ClusterIP" .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ default .Values.service.port .Values.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "librepod.names.selectorLabels" . | nindent 4 }}
+{{- end -}}
