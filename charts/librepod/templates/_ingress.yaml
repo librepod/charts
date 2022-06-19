@@ -1,0 +1,32 @@
+{{/* Renders the Ingress objects required by the chart */}}
+{{- define "librepod.ingress" -}}
+{{- $fullName := include "librepod.names.fullname" . -}}
+{{- $svcPort := .Values.service.port -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "librepod.names.labels" . | nindent 4 }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+
+  {{/*
+  tls:
+    - hosts:
+        - {{ .Values.ingress.domain | quote }}
+      secretName: "{{ .Values.ingress.domain }}-ingress-tls"
+  */}}
+  rules:
+    - host: {{ .Values.ingress.domain | quote }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  number: {{ $svcPort }}
+{{- end -}}

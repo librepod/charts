@@ -1,0 +1,21 @@
+{{/* Renders the Ingress objects required by the chart */}}
+{{- define "librepod.ingressroute" -}}
+{{- $fullName := include "librepod.names.fullname" . -}}
+{{- $svcPort := .Values.service.port -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "librepod.names.labels" . | nindent 4 }}
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`{{ .Values.ingress.domain }}`)
+      services:
+        - name: {{ $fullName }}
+          port: {{ $svcPort }}
+{{- end -}}
