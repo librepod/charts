@@ -20,5 +20,6 @@ testChart:
 
     RUN docker run --network host --workdir=/data --volume $(pwd):/data quay.io/helmpack/chart-testing:v3.6.0 ct lint --config ct.yaml \
         && k3d cluster create librepod --wait --kubeconfig-update-default --kubeconfig-switch-context --image rancher/k3s:v1.23.6-k3s1 \
+        && sleep 30 \
         && docker run --network host --workdir=/data --volume ~/.kube/config:/root/.kube/config:ro --volume $(pwd):/data quay.io/helmpack/chart-testing:v3.6.0 ct install --config ct.yaml
   END

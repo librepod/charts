@@ -7,8 +7,6 @@ image:
   pullPolicy: IfNotPresent
   tag: ""
 
-imagePullSecrets: []
-
 persistence:
   # -- If you set this to false, uploaded attachments are not stored persistently and will be lost with every restart of the pod
   enabled: false
