@@ -1,0 +1,9 @@
+dependencies:
+- name: librepod
+  repository: https://librepod.github.io/charts
+  version: 0.1.0
+- name: postgres
+  repository: https://librepod.github.io/charts
+  version: 0.1.2
+digest: sha256:b65bd335693c34b078234f68cc24658f980ca7c3fcd5aa198e02314206f5471e
+generated: "2022-06-21T00:13:08.107919097+03:00"
