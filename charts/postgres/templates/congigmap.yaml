@@ -1,0 +1,9 @@
+{{- include "librepod.configmap" (list . "postgres.configmap") -}}
+
+{{- define "postgres.configmap" -}}
+data:
+{{- range $key, $value := .Values.configs }}
+  {{ $key }}: {{ $value | quote }}
+{{- end }}
+{{- end -}}
+
