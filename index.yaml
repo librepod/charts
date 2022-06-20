@@ -1,5 +1,27 @@
 apiVersion: v1
 entries:
+  firefly-iii:
+  - apiVersion: v2
+    appVersion: version-5.7.9
+    created: "2022-06-20T21:52:24.39165608Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 0.1.0
+    - name: postgres
+      repository: https://librepod.github.io/charts
+      version: 0.1.2
+    description: A free and open source personal finance manager
+    digest: 035f9b1b53c583430dbd7fb4443740644bd624689e24aec654a209c9e3d4e033
+    home: https://www.firefly-iii.org/
+    icon: https://raw.githubusercontent.com/firefly-iii/firefly-iii/main/.github/assets/img/logo-small.png
+    name: firefly-iii
+    sources:
+    - https://github.com/librepod/charts/charts/firefly-iii
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/firefly-iii-0.1.0/firefly-iii-0.1.0.tgz
+    version: 0.1.0
   hajimari:
   - apiVersion: v2
     appVersion: v0.2.0
@@ -231,4 +253,4 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-20T21:09:21.045177993Z"
+generated: "2022-06-20T21:52:24.391690581Z"
