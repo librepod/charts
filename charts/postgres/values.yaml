@@ -1,0 +1,35 @@
+nameOverride: ""
+fullnameOverride: ""
+
+replicaCount: 1
+autoscaling:
+  enabled: false
+
+image:
+  repository: postgres
+  tag: 10-alpine
+  pullPolicy: IfNotPresent
+
+env:
+
+configs:
+  PGPASSWORD: ""
+  DBHOST: postgres-db
+  DBPORT: "5432"
+  DBNAME: postgres
+  DBUSER: postgres
+  TZ: Europe/Moscow
+  POSTGRES_HOST_AUTH_METHOD: trust
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: ""
+
+service:
+  port: 5432
+  targetPort: 5432
+
+serviceAccount:
+  create: false
+
+persistence:
+  enabled: true
+  size: 1Gi

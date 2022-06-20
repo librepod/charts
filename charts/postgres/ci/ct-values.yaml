@@ -1,0 +1,6 @@
+persistence:
+  enabled: true
+  storageClassName: local-path
+
+serviceAccount:
+  create: false

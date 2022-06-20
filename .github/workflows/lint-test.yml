@@ -12,23 +12,18 @@ jobs:
       - name: Fetch history
         run: git fetch --prune --unshallow
 
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.2.1
-
-      - name: Run chart-testing (list-changed)
-        id: list-changed
+      - name: Put back the git branch into git (Earthly uses it for tagging)
         run: |
-          changed=$(ct list-changed --config ct.yaml)
-          if [[ -n "$changed" ]]; then
-            echo "::set-output name=changed::true"
+          branch=""
+          if [ -n "$GITHUB_HEAD_REF" ]; then
+            branch="$GITHUB_HEAD_REF"
+          else
+            branch="${GITHUB_REF##*/}"
           fi
+          git checkout -b "$branch" || true
 
-      - name: Run chart-testing (lint)
-        run: ct lint --config ct.yaml
+      - name: Download latest earthly
+        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.6.16/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
 
-      - name: Create kind cluster
-        uses: helm/kind-action@v1.2.0
-        if: steps.list-changed.outputs.changed == 'true'
-
-      - name: Run chart-testing (install)
-        run: ct install --config ct.yaml
+      - name: earthly -P +testChart
+        run: FORCE_COLOR=1 earthly -P +testChart
