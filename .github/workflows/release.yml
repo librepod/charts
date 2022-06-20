@@ -1,9 +1,12 @@
 name: Release Charts
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
+    paths:
+      - "charts/**"
 
 jobs:
   release:
@@ -20,6 +23,9 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
+        uses: helm/chart-releaser-action@v1.4.0
+        with:
+          charts_dir: charts/*
+          charts_repo_url: https://librepod.github.io/charts
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

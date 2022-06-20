@@ -15,10 +15,10 @@ testChart:
   COPY lintconf.yaml ct.yaml chart_schema.yaml .
 
   WITH DOCKER \
-    --pull quay.io/helmpack/chart-testing:v3.5.0 \
+    --pull quay.io/helmpack/chart-testing:v3.6.0 \
     --pull rancher/k3s:v1.23.6-k3s1
 
-    RUN docker run --network host --workdir=/data --volume $(pwd):/data quay.io/helmpack/chart-testing:v3.5.0 ct lint --config ct.yaml \
+    RUN docker run --network host --workdir=/data --volume $(pwd):/data quay.io/helmpack/chart-testing:v3.6.0 ct lint --config ct.yaml \
         && k3d cluster create librepod --wait --kubeconfig-update-default --kubeconfig-switch-context --image rancher/k3s:v1.23.6-k3s1 \
-        && docker run --network host --workdir=/data --volume ~/.kube/config:/root/.kube/config:ro --volume $(pwd):/data quay.io/helmpack/chart-testing:v3.5.0 ct install --config ct.yaml
+        && docker run --network host --workdir=/data --volume ~/.kube/config:/root/.kube/config:ro --volume $(pwd):/data quay.io/helmpack/chart-testing:v3.6.0 ct install --config ct.yaml
   END
