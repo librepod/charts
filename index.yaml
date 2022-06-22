@@ -205,6 +205,30 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/postgres-0.1.2/postgres-0.1.2.tgz
     version: 0.1.2
+  trilium:
+  - apiVersion: v2
+    appVersion: 0.52.3
+    created: "2022-06-22T21:02:03.888119682Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 0.1.0
+    description: 'Trilium Notes is a hierarchical note taking application with focus
+      on building large personal knowledge bases. '
+    digest: 296990ea754aa258b9098682d495b1cdc9b500d5c4820445635815785ed47a3a
+    home: https://github.com/librepod/charts/tree/master/charts/trilium
+    icon: https://github.com/zadam/trilium/raw/master/images/app-icons/png/48x48.png
+    keywords:
+    - trilium
+    - notes
+    kubeVersion: '>=1.16.0-0'
+    name: trilium
+    sources:
+    - https://github.com/zadam/trilium
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/trilium-0.1.0/trilium-0.1.0.tgz
+    version: 0.1.0
   unbound:
   - annotations:
       category: Infrastructure
@@ -253,4 +277,4 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-20T21:52:24.391690581Z"
+generated: "2022-06-22T21:02:03.888426768Z"
