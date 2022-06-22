@@ -1,0 +1,34 @@
+replicaCount: 1
+autoscaling:
+  enabled: false
+
+image:
+  repository: zadam/trilium
+  pullPolicy: IfNotPresent
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+config:
+  env:
+    TRILIUM_DATA_DIR: "/data"
+
+# -- Configures service settings for the chart.
+service:
+  port: 8080
+  targetPort: 8080
+
+# -- Configures service account needed for reading k8s ingress objects
+serviceAccount:
+  create: true
+
+ingress:
+  enabled: true
+  domain: trilium.libre.pod
+
+# -- Configure persistence settings for the chart under this key.
+persistence:
+  enabled: true
+  size: 1Gi

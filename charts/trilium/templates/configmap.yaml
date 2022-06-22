@@ -1,0 +1,8 @@
+{{- include "librepod.configmap" (list . "trilium.configmap") -}}
+
+{{- define "trilium.configmap" -}}
+data:
+{{- range $key, $value := .Values.config.env }}
+  {{ $key }}: {{ $value | quote }}
+{{- end }}
+{{- end }}
