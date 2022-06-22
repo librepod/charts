@@ -1,0 +1,4 @@
+{{- if .Values.ingress.enabled }}
+{{- include "librepod.ingressroute" . -}}
+{{- end }}
+
