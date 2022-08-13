@@ -1,3 +1,0 @@
-{{- if .Values.persistence.enabled }}
-{{- include "librepod.storage" . -}}
-{{- end }}

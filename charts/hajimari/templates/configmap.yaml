@@ -1,7 +1,0 @@
-{{- include "librepod.configmap" (list . "hajimari.configmap") -}}
-
-{{- define "hajimari.configmap" -}}
-data:
-  config.yaml: |-
-{{ toYaml .Values.hajimari | indent 4 }}
-{{- end -}}

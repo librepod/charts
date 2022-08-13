@@ -3,7 +3,7 @@ name: hajimari
 description: |
     Hajimari is a beautiful & customizable browser startpage/dashboard with
     Kubernetes application discovery
-version: 0.1.5
+version: 0.2.0
 appVersion: v0.2.0
 kubeVersion: ">=1.16.0-0"
 type: application
@@ -17,5 +17,5 @@ sources:
   - https://github.com/toboshii/hajimari
 dependencies:
   - name: librepod
-    version: 0.1.0
+    version: 1.0.0
     repository: https://librepod.github.io/charts
