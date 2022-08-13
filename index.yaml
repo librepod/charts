@@ -224,6 +224,23 @@ entries:
     version: 2.5.6
   postgres:
   - apiVersion: v2
+    appVersion: 10-alpine
+    created: "2022-08-13T21:10:01.855752597Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.0.0
+    description: PostgreSQL - The World's Most Advanced Open Source Relational Database
+    digest: ed08d3fb3938f93d9ccf3dc2427981769b84c922deb8f699d4fddfb8b895dba2
+    kubeVersion: '>=1.16.0-0'
+    name: postgres
+    sources:
+    - https://github.com/librepod/charts/postgres
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/postgres-0.2.0/postgres-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: v10-alpine
     created: "2022-06-20T21:09:21.045083787Z"
     dependencies:
@@ -312,4 +329,4 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-13T20:35:04.552337515Z"
+generated: "2022-08-13T21:10:01.855846498Z"
