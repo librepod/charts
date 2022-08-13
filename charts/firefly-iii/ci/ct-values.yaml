@@ -1,8 +1,8 @@
 persistence:
-  enabled: true
-  storageClassName: local-path
+  uploads:
+    storageClassName: local-path
 
 postgres:
   persistence:
-    enabled: true
-    storageClassName: local-path
+    data:
+      storageClassName: local-path
