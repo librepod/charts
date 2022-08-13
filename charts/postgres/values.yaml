@@ -1,18 +1,21 @@
-nameOverride: ""
-fullnameOverride: ""
-
-replicaCount: 1
-autoscaling:
-  enabled: false
-
 image:
   repository: postgres
-  tag: 10-alpine
   pullPolicy: IfNotPresent
+  tag: ""
+
+persistence:
+  config:
+    enabled: false
+  data:
+    enabled: true
+    type: pvc
+    mountPath: /var/lib/postgresql/data
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    retain: true
 
 env:
-
-configs:
   PGPASSWORD: ""
   DBHOST: postgres-db
   DBPORT: "5432"
@@ -24,12 +27,11 @@ configs:
   POSTGRES_PASSWORD: ""
 
 service:
-  port: 5432
-  targetPort: 5432
-
-serviceAccount:
-  create: false
-
-persistence:
-  enabled: true
-  size: 1Gi
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 5432
+        targetPort: 5432
