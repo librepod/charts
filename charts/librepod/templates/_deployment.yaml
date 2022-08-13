@@ -1,17 +1,45 @@
-{{- define "librepod.deployment" -}}
+{{/*
+This template serves as the blueprint for the Deployment objects that are created
+within the librepod library.
+*/}}
+{{- define "librepod.deployment" }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "librepod.names.fullname" . }}
   labels:
-    {{- include "librepod.names.labels" . | nindent 4 }}
-spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
+    {{- include "librepod.labels" . | nindent 4 }}
+    {{- with .Values.controller.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.controller.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
   {{- end }}
+spec:
+  revisionHistoryLimit: {{ .Values.controller.revisionHistoryLimit }}
+  replicas: {{ .Values.controller.replicas }}
+  {{- $strategy := default "Recreate" .Values.controller.strategy }}
+  {{- if and (ne $strategy "Recreate") (ne $strategy "RollingUpdate") }}
+    {{- fail (printf "Not a valid strategy type for Deployment (%s)" $strategy) }}
+  {{- end }}
+  strategy:
+    type: {{ $strategy }}
+    {{- with .Values.controller.rollingUpdate }}
+      {{- if and (eq $strategy "RollingUpdate") (or .surge .unavailable) }}
+    rollingUpdate:
+        {{- with .unavailable }}
+      maxUnavailable: {{ . }}
+        {{- end }}
+        {{- with .surge }}
+      maxSurge: {{ . }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
   selector:
     matchLabels:
-      {{- include "librepod.names.selectorLabels" . | nindent 6 }}
+      {{- include "librepod.labels.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,33 +47,10 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "librepod.names.selectorLabels" . | nindent 8 }}
+        {{- include "librepod.labels.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
-      serviceAccountName: {{ include "librepod.names.serviceAccountName" . }}
-      volumes:
-        - name: config-volume
-          configMap:
-            name: {{ template "librepod.names.fullname" . }}
-      containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          volumeMounts:
-            - name: config-volume
-              mountPath: "/config/config.yaml"
-              subPath: "config.yaml"
-          ports:
-            - name: http
-              containerPort: {{ .Values.service.targetPort }}
-              protocol: TCP
-          # livenessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-{{- end -}}
+      {{- include "librepod.controller.pod" . | nindent 6 }}
+{{- end }}

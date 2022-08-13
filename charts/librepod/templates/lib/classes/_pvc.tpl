@@ -1,21 +1,4 @@
 {{/*
-Renders the Persistent Volume Claim objects required by the chart.
-*/}}
-{{- define "librepod.pvc" -}}
-  {{- /* Generate pvc as required */ -}}
-  {{- range $index, $PVC := .Values.persistence }}
-    {{- if and $PVC.enabled (eq (default "pvc" $PVC.type) "pvc") (not $PVC.existingClaim) -}}
-      {{- $persistenceValues := $PVC -}}
-      {{- if not $persistenceValues.nameOverride -}}
-        {{- $_ := set $persistenceValues "nameOverride" $index -}}
-      {{- end -}}
-      {{- $_ := set $ "ObjectValues" (dict "persistence" $persistenceValues) -}}
-      {{- include "librepod.classes.pvc" $ | nindent 0 -}}
-    {{- end }}
-  {{- end }}
-{{- end }}
-
-{{/*
 This template serves as a blueprint for all PersistentVolumeClaim objects that are created
 within the librepod library.
 */}}
@@ -37,20 +20,16 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: {{ $pvcName }}
-  {{- if or $values.retain $values.annotations }}
+  {{- with (merge ($values.labels | default dict) (include "librepod.labels" $ | fromYaml)) }}
+  labels: {{- toYaml . | nindent 4 }}
+  {{- end }}
   annotations:
     {{- if $values.retain }}
     "helm.sh/resource-policy": keep
     {{- end }}
-    {{- with $values.annotations }}
+    {{- with (merge ($values.annotations | default dict) (include "librepod.annotations" $ | fromYaml)) }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
-  {{- end }}
-  labels:
-  {{- include "librepod.labels" . | nindent 4 }}
-  {{- with $values.labels }}
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
 spec:
   accessModes:
     - {{ required (printf "accessMode is required for PVC %v" $pvcName) $values.accessMode | quote }}
