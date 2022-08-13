@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: v10-alpine
+appVersion: 10-alpine
 name: postgres
 description: PostgreSQL - The World's Most Advanced Open Source Relational Database
-version: 0.1.2
+version: 0.2.0
 kubeVersion: ">=1.16.0-0"
 type: application
 sources:
   - https://github.com/librepod/charts/postgres
 dependencies:
   - name: librepod
-    version: 0.1.0
+    version: 1.0.0
     repository: https://librepod.github.io/charts
