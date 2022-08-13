@@ -1,8 +1,0 @@
-{{- include "librepod.configmap" (list . "firefly-iii.configmap") -}}
-
-{{- define "firefly-iii.configmap" -}}
-data:
-{{- range $key, $value := .Values.config.env }}
-  {{ $key }}: {{ $value | quote }}
-{{- end }}
-{{- end }}

@@ -1,74 +1,75 @@
-replicaCount: 1
-autoscaling:
-  enabled: false
-
 image:
-  repository: "fireflyiii/core"
+  repository: fireflyiii/core
   pullPolicy: IfNotPresent
   tag: ""
 
 persistence:
-  # -- If you set this to false, uploaded attachments are not stored persistently and will be lost with every restart of the pod
-  enabled: false
-  size: 1Gi
+  config:
+    enabled: false
+  uploads:
+    # Enable persistence for uploading attachments for transactions
+    enabled: true
+    type: pvc
+    mountPath: /var/www/html/storage/upload
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    retain: true
 
-# -- Environment variables for Firefly III. See docs at: https://github.com/firefly-iii/firefly-iii/blob/main/.env.example
-config:
-  env:
-    APP_KEY: "CHANGEMECHANGEMECHANGEMECHANGEME"
-    DB_HOST: firefly-iii-postgres
-    DB_CONNECTION: pgsql
-    DB_PORT: "5432"
-    DB_DATABASE: postgres
-    DB_USERNAME: postgres
-    DB_PASSWORD: "YOURDBPASSWORD"
-    DEFAULT_LANGUAGE: "en_US"
-    DEFAULT_LOCALE: "equal"
-    TZ: "Europe/Moscow"
-    TRUSTED_PROXIES: "**"
+# See docs at: https://github.com/firefly-iii/firefly-iii/blob/main/.env.example
+env:
+  APP_KEY: "CHANGEMECHANGEMECHANGEMECHANGEME"
+  DB_HOST: firefly-iii-postgres
+  DB_CONNECTION: pgsql
+  DB_PORT: "5432"
+  DB_DATABASE: postgres
+  DB_USERNAME: postgres
+  DB_PASSWORD: "YOURDBPASSWORD"
+  DEFAULT_LANGUAGE: "en_US"
+  DEFAULT_LOCALE: "equal"
+  TZ: "Europe/Moscow"
+  TRUSTED_PROXIES: "**"
 
-# -- A cronjob for [recurring Firefly III tasks](https://docs.firefly-iii.org/firefly-iii/advanced-installation/cron/).
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 8080
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: firefly.libre.pod
+
+# A cronjob for [recurring Firefly III tasks](https://docs.firefly-iii.org/firefly-iii/advanced-installation/cron/).
 cronjob:
-  # -- Set to true to enable the CronJob. Note that you need to specify either cronjob.auth.existingSecret or cronjob.auth.token for it to actually be deployed.
+  # Set to true to enable the CronJob. Note that you need to specify either cronjob.auth.existingSecret or cronjob.auth.token for it to actually be deployed.
   enabled: false
-  # -- Authorization for the CronJob. See https://docs.firefly-iii.org/firefly-iii/advanced-installation/cron/#request-a-page-over-the-web
+  # Authorization for the CronJob. See https://docs.firefly-iii.org/firefly-iii/advanced-installation/cron/#request-a-page-over-the-web
   auth:
-    # -- The name of a secret containing a data.token field with the cronjob token
+    # The name of a secret containing a data.token field with the cronjob token
     existingSecret: ""
-    # -- The token in plain text
+    # The token in plain text
     token: ""
-  # -- Annotations for the CronJob
+  # Annotations for the CronJob
   annotations: {}
-  # -- When to run the CronJob. Defaults to 03:00 as this is when Firefly III executes regular tasks.
+  # When to run the CronJob. Defaults to 03:00 as this is when Firefly III executes regular tasks.
   schedule: "0 3 * * *"
-  # -- How many pods to keep around for successful jobs
+  # How many pods to keep around for successful jobs
   successfulJobsHistoryLimit: 3
-  # -- How many pods to keep around for failed jobs
+  # How many pods to keep around for failed jobs
   failedJobsHistoryLimit: 1
-  # -- How to treat failed jobs
+  # How to treat failed jobs
   restartPolicy: OnFailure
   image:
     repository: curlimages/curl
     pullPolicy: IfNotPresent
     tag: 7.81.0
 
-service:
-  port: 80
-  targetPort: 8080
-
-ingress:
-  enabled: true
-  domain: firefly.libre.pod
-
+# Enable and configure postgresql subchart under this key.
 postgres:
-  fullnameOverride: "firefly-iii-postgres"
-  configs:
-    PGPASSWORD: "YOURDBPASSWORD"
-    DBHOST: firefly-iii-postgres
-    DBPORT: "5432"
-    DBNAME: postgres
-    DBUSER: postgres
-    TZ: Europe/Moscow
-    POSTGRES_HOST_AUTH_METHOD: trust
-    POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: "YOURDBPASSWORD"
+  fullnameOverride: firefly-iii-postgres
