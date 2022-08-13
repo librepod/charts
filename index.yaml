@@ -1,5 +1,31 @@
 apiVersion: v1
 entries:
+  bitwarden:
+  - apiVersion: v2
+    appVersion: 1.25.2-alpine
+    created: "2022-08-13T20:35:04.552308112Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.0.0
+    description: 'Open source password management solutions for individuals, teams,
+      and business organizations '
+    digest: 213212a21f0c6d28feb2460283c0858c0eb0cee07c9d3825db3ce9bc4dc95095
+    home: https://github.com/librepod/charts/tree/master/charts/bitwarden
+    icon: https://avatars.githubusercontent.com/u/15990069
+    keywords:
+    - bitwarden
+    - vaultwarden
+    - password
+    kubeVersion: '>=1.16.0-0'
+    name: bitwarden
+    sources:
+    - https://github.com/bitwarden/server
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/bitwarden-0.1.0/bitwarden-0.1.0.tgz
+    version: 0.1.0
   firefly-iii:
   - apiVersion: v2
     appVersion: version-5.7.9
@@ -286,4 +312,4 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-13T20:09:53.613197978Z"
+generated: "2022-08-13T20:35:04.552337515Z"
