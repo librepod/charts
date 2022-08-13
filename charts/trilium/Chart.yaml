@@ -3,8 +3,8 @@ name: trilium
 description: |
   Trilium Notes is a hierarchical note taking application with focus on
   building large personal knowledge bases.
-version: 0.1.0
-appVersion: "0.52.3"
+version: 0.2.0
+appVersion: 0.54.2
 kubeVersion: ">=1.16.0-0"
 type: application
 keywords:
@@ -16,5 +16,5 @@ sources:
   - https://github.com/zadam/trilium
 dependencies:
   - name: librepod
-    version: 0.1.0
+    version: 1.0.0
     repository: https://librepod.github.io/charts
