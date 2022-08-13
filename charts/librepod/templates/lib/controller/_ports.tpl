@@ -14,6 +14,7 @@ Ports included by the controller.
 
 {{/* export/render the list of ports */}}
 {{- if $ports -}}
+ports:
 {{- range $_ := $ports }}
 {{- if .enabled }}
 - name: {{ .name }}

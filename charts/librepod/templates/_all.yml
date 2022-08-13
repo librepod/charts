@@ -5,6 +5,8 @@ Main entrypoint for the librepod library chart. It will render all underlying te
   {{- /* Merge the local chart values and the librepod chart defaults */ -}}
   {{- include "librepod.values.setup" . }}
 
+  {{ include "librepod.configmap" . | nindent 0 }}
+
   {{- /* Build the templates */ -}}
   {{- include "librepod.pvc" . }}
 

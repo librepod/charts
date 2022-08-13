@@ -70,6 +70,14 @@
         name: {{ include "librepod.names.fullname" . }}
     {{- end }}
   {{- end }}
-  ports:
-  {{- include "librepod.controller.ports" . | trim | nindent 4 }}
+  {{- with (include "librepod.controller.volumeMounts" . | trim) }}
+  volumeMounts:
+    {{- nindent 4 . }}
+  {{- end }}
+  {{- include "librepod.controller.probes" . | trim | nindent 2 }}
+  {{- include "librepod.controller.ports" . | trim | nindent 2 }}
+  {{- with .Values.resources }}
+  resources:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 {{- end -}}

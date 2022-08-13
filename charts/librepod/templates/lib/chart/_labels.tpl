@@ -1,5 +1,5 @@
 {{/*
-Common labels shared across objects
+Librepod labels shared across objects
 */}}
 {{- define "librepod.labels" -}}
 helm.sh/chart: {{ include "librepod.names.chart" . }}

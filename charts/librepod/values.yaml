@@ -336,7 +336,7 @@ ingress:
     ## Configure the hosts for the ingress
     hosts:
       -  # -- Host address. Helm template can be passed.
-        host: chart-example.local
+        host: example.libre.pod
         ## Configure the paths for the host
         paths:
           -  # -- Path.  Helm template can be passed.
@@ -351,13 +351,12 @@ ingress:
 
     # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
     tls: []
-    #  - secretName: chart-example-tls
+    #  - secretName: example-libre-pod
     #    hosts:
-    #      - chart-example.local
+    #      - example.libre.pod
 
 # -- Configure persistence for the chart here.
 # Additional items can be added by adding a dictionary key similar to the 'config' key.
-# [[ref]](http://docs.k8s-at-home.com/our-helm-charts/common-library-storage)
 # @default -- See below
 persistence:
   # -- Default persistence for configuration files.

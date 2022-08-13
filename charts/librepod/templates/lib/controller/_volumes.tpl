@@ -6,7 +6,7 @@ Volumes included by the controller.
 {{- if $persistence.enabled }}
 - name: {{ $index }}
   {{- if eq (default "pvc" $persistence.type) "pvc" }}
-    {{- $pvcName := (include "librepod.names.pvcName" $) -}}
+    {{- $pvcName := (include "librepod.names.fullname" $) -}}
     {{- if $persistence.existingClaim }}
       {{- /* Always prefer an existingClaim if that is set */}}
       {{- $pvcName = $persistence.existingClaim -}}
