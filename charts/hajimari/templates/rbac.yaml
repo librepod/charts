@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   name: {{ template "librepod.names.serviceAccountName" . }}
   labels:
-    {{- include "librepod.names.labels" . | nindent 4 }}
+    {{- include "librepod.labels" . | nindent 4 }}
 rules:
 - apiGroups: ["", "extensions", "networking.k8s.io"]
   resources: ["ingresses", "namespaces"]
@@ -15,7 +15,7 @@ kind: ClusterRoleBinding
 metadata:
   name: {{ template "librepod.names.serviceAccountName" . }}
   labels:
-    {{- include "librepod.names.labels" . | nindent 4 }}
+    {{- include "librepod.labels" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
