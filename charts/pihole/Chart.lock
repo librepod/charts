@@ -1,0 +1,9 @@
+dependencies:
+- name: librepod
+  repository: https://librepod.github.io/charts
+  version: 1.1.0
+- name: unbound
+  repository: https://librepod.github.io/charts
+  version: 0.3.0
+digest: sha256:fef39b3b8a7440362b2f0cf813e554d8bf349b797ce1addaa2dcb83a02e28efe
+generated: "2022-10-23T22:33:19.292042097+03:00"

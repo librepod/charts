@@ -1,0 +1,13 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: pihole-dns
+spec:
+  entryPoints:
+    - dns
+  routes:
+    - services:
+      - name: pihole-dns
+        port: 53
+        weight: 10
