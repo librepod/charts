@@ -7,10 +7,6 @@ image:
   pullPolicy: IfNotPresent
   tag: ""
 
-persistence:
-  config:
-    enabled: false
-
 env:
   TZ: Europe/Moscow
   WEBPASSWORD: admin
