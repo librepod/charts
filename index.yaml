@@ -230,6 +230,15 @@ entries:
     version: 0.1.0
   librepod:
   - apiVersion: v2
+    created: "2022-10-23T18:32:47.578355951Z"
+    description: A Helm library chart for LibrePod specific Kubernetes clusters
+    digest: be9558e5f9c0ef194efb9746fd28be5195243a49fe04e6e5024402b70da571e4
+    name: librepod
+    type: library
+    urls:
+    - https://github.com/librepod/charts/releases/download/librepod-1.1.0/librepod-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2022-08-13T20:09:53.613171378Z"
     description: A Helm library chart for LibrePod specific Kubernetes clusters
     digest: 04a0d1154dcfa369580be8635c76ba7e545a3089b90d68d8d20c981aec01bcb0
@@ -397,4 +406,4 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-14T16:46:49.466113908Z"
+generated: "2022-10-23T18:32:47.578390652Z"
