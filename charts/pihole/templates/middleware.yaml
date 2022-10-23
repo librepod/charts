@@ -1,0 +1,9 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: add-admin-prefix
+  labels:
+    {{- include "librepod.labels" . | nindent 4 }}
+spec:
+  addPrefix:
+    prefix: "/admin"
