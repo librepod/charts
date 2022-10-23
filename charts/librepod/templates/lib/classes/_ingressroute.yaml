@@ -44,14 +44,23 @@ spec:
   {{- range $values.hosts }}
     - kind: Rule
       match: Host(`{{ tpl .host $ }}`)
+      middlewares:
+      {{- range $values.middlewares }}
+        - name: {{ . | quote }}
+      {{- end }} 
       services:
         {{- $service := $defaultServiceName -}}
         {{- $port := $defaultServicePort.port -}}
+        {{- $passHostHeader := true -}}
         {{- if .service -}}
           {{- $service = default $service .service.name -}}
           {{- $port = default $port .service.port -}}
+          {{- if and (hasKey .service "protocol") (eq .service.protocol "UDP") -}}
+            {{- $passHostHeader = false -}}
+          {{- end }}
         {{- end }}
-          - name: {{ $service }}
-            port: {{ $port }}
+        - name: {{ $service }}
+          port: {{ $port }}
+          {{ if $passHostHeader }}passHostHeader: true {{ end }}
   {{- end }}
 {{- end }}

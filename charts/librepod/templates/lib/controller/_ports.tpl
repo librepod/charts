@@ -17,20 +17,20 @@ Ports included by the controller.
 ports:
 {{- range $_ := $ports }}
 {{- if .enabled }}
-- name: {{ .name }}
-  {{- if and .targetPort (kindIs "string" .targetPort) }}
-  {{- fail (printf "Our charts do not support named ports for targetPort. (port name %s, targetPort %s)" .name .targetPort) }}
-  {{- end }}
-  containerPort: {{ .targetPort | default .port }}
-  {{- if .protocol }}
-  {{- if or ( eq .protocol "HTTP" ) ( eq .protocol "HTTPS" ) ( eq .protocol "TCP" ) }}
-  protocol: TCP
-  {{- else }}
-  protocol: {{ .protocol }}
-  {{- end }}
-  {{- else }}
-  protocol: TCP
-  {{- end }}
+  - name: {{ .name }}
+    {{- if and .targetPort (kindIs "string" .targetPort) }}
+    {{- fail (printf "Our charts do not support named ports for targetPort. (port name %s, targetPort %s)" .name .targetPort) }}
+    {{- end }}
+    containerPort: {{ .targetPort | default .port }}
+    {{- if .protocol }}
+    {{- if or ( eq .protocol "HTTP" ) ( eq .protocol "HTTPS" ) ( eq .protocol "TCP" ) }}
+    protocol: TCP
+    {{- else }}
+    protocol: {{ .protocol }}
+    {{- end }}
+    {{- else }}
+    protocol: TCP
+    {{- end }}
 {{- end}}
 {{- end -}}
 {{- end -}}
