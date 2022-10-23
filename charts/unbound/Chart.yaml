@@ -1,12 +1,26 @@
-annotations:
-  category: Infrastructure
 apiVersion: v2
 name: unbound
-description: Unbound is a validating, recursive, caching DNS resolver. It is designed to be fast and lean and incorporates modern features based on open standards
-home: https://nlnetlabs.nl/projects/unbound
+description: |
+  Unbound is a validating, recursive, caching DNS resolver.
+  It is designed to be fast and lean and incorporates modern features based
+  on open standards
+version: 0.3.0
+appVersion: 1.17.0
+kubeVersion: ">=1.16.0-0"
+type: application
+keywords:
+  - unbound
+  - dns
+  - dns resolver
+home: https://github.com/librepod/charts/tree/master/charts/unbound
 icon: https://nlnetlabs.nl/static/logos/Unbound/Unbound_FC_Shaded_cropped.svg
 sources:
   - https://github.com/NLnetLabs/unbound
-type: application
-version: 0.2.0
-appVersion: 1.14.0
+  - https://nlnetlabs.nl/projects/unbound
+  - https://github.com/MatthewVance/unbound-docker
+dependencies:
+  - name: librepod
+    version: 1.1.0
+    repository: https://librepod.github.io/charts
+annotations:
+  category: Infrastructure
