@@ -9,11 +9,11 @@ image:
 
 env:
   TZ: Europe/Moscow
-  PASSWORD: 
+  PASSWORD: pass@w0rd
   WG_HOST: '{{ .Values.hostIP }}'
   WG_PORT: 51820
   WG_DEFAULT_ADDRESS: 10.6.0.x
-  WG_DEFAULT_DNS: 10.43.111.110 # pihole IP
+  WG_DEFAULT_DNS: 10.43.111.110     # Pihole static IP
 
 securityContext:
   capabilities:
