@@ -16,6 +16,7 @@ env:
 service:
   main:
     enabled: true
+    clusterIP: 10.43.111.110
     ports:
       http:
         enabled: true
