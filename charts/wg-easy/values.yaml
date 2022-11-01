@@ -1,0 +1,60 @@
+# The 'hostIP' is supposed to be set upon chart installation:
+# helm install pihole --set hostIP="192.168.1.200"
+hostIP: 127.0.0.1
+
+image:
+  repository: weejewel/wg-easy
+  pullPolicy: IfNotPresent
+  tag: ""
+
+env:
+  TZ: Europe/Moscow
+  PASSWORD: 
+  WG_HOST: '{{ .Values.hostIP }}'
+  WG_PORT: 51820
+  WG_DEFAULT_ADDRESS: 10.6.0.x
+  WG_DEFAULT_DNS: 10.43.111.110 # pihole IP
+
+securityContext:
+  capabilities:
+    add: ['NET_ADMIN']
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 80
+        targetPort: 51821
+  wireguard:
+    enabled: true
+    ports:
+      wireguard:
+        enabled: true
+        port: 51820
+        protocol: UDP
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: wireguard.libre.pod
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /etc/wireguard
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 100Mi
+    retain: true
+  tun:
+    enabled: true
+    mountPath: /dev/net/tun
+    type: custom
+    volumeSpec:
+      hostPath:
+        path: /dev/net/tun
+        type: CharDevice
