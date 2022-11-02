@@ -1,0 +1,59 @@
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  repo: https://helm.traefik.io/traefik
+  chart: traefik
+  version: 15.3.1
+  set:
+    global.systemDefaultRegistry: ""
+  valuesContent: |-
+    experimental:
+      http3:
+        enabled: true
+      plugins:
+        enabled: true
+    rollingUpdate:
+      maxUnavailable: 0
+    rbac:
+      enabled: true
+    ports:
+      web:
+        redirectTo: websecure
+      websecure:
+        tls:
+          enabled: true
+      dns:
+        port: 5353
+        expose: true
+        exposedPort: 53
+        protocol: UDP
+      wireguard:
+        port: 51820
+        expose: true
+        exposedPort: 51820
+        protocol: UDP
+    podAnnotations:
+      prometheus.io/port: "8082"
+      prometheus.io/scrape: "true"
+    providers:
+      kubernetesCRD:
+        allowCrossNamespace: true
+        allowExternalNameServices: true
+      kubernetesIngress:
+        publishedService:
+          enabled: true
+    priorityClassName: "system-cluster-critical"
+    tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+      - key: "node-role.kubernetes.io/master"
+        operator: "Exists"
+        effect: "NoSchedule"
+
