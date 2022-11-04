@@ -268,6 +268,38 @@ entries:
   pihole:
   - apiVersion: v2
     appVersion: "2022.10"
+    created: "2022-11-04T02:52:19.532874279Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.1.1
+    - name: unbound
+      repository: https://librepod.github.io/charts
+      version: 0.3.0
+    description: 'Pi-hole is a Linux network-level advertisement and Internet tracker
+      blocking application which acts as a DNS sinkhole and optionally a DHCP server,
+      intended for use on a private network. '
+    digest: 45a995b5e7c9c5dabba167225b182a40a263310d6a607a71916d9ed4238735bd
+    home: https://github.com/librepod/charts/tree/master/charts/pihole
+    icon: https://i2.wp.com/pi-hole.net/wp-content/uploads/2016/12/Vortex-R.png
+    keywords:
+    - pihole
+    - adblock
+    - ads
+    - dns
+    kubeVersion: '>=1.16.0-0'
+    name: pihole
+    sources:
+    - https://github.com/librepod/charts/tree/master/charts/pihole
+    - https://pi-hole.net/
+    - https://github.com/pi-hole
+    - https://github.com/pi-hole/docker-pi-hole
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/pihole-3.1.1/pihole-3.1.1.tgz
+    version: 3.1.1
+  - apiVersion: v2
+    appVersion: "2022.10"
     created: "2022-11-02T17:53:26.236128154Z"
     dependencies:
     - name: librepod
@@ -511,6 +543,28 @@ entries:
   wg-easy:
   - apiVersion: v2
     appVersion: "7"
+    created: "2022-11-04T02:52:19.682478359Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.1.1
+    description: 'The easiest way to run WireGuard VPN + Web-based Admin UI. '
+    digest: 664f65e9ce20ca2015ed1224f969242ba6d7d104c6bbb80e513ccbf0d1e13ac6
+    home: https://github.com/librepod/charts/tree/master/charts/wg-easy
+    keywords:
+    - wireguard
+    - vpn
+    kubeVersion: '>=1.16.0-0'
+    name: wg-easy
+    sources:
+    - https://github.com/librepod/charts/tree/master/charts/wg-easy
+    - https://github.com/WeeJeWel/wg-easy
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/wg-easy-1.1.0/wg-easy-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: "7"
     created: "2022-11-02T17:53:26.459692261Z"
     dependencies:
     - name: librepod
@@ -531,4 +585,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-11-02T17:53:26.459990076Z"
+generated: "2022-11-04T02:52:19.682564759Z"
