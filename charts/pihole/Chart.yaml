@@ -4,7 +4,7 @@ description: |
   Pi-hole is a Linux network-level advertisement and Internet tracker blocking
   application which acts as a DNS sinkhole and optionally a DHCP server,
   intended for use on a private network.
-version: 3.1.0
+version: 3.1.1
 appVersion: "2022.10"
 kubeVersion: ">=1.16.0-0"
 type: application
@@ -22,7 +22,7 @@ sources:
 icon: https://i2.wp.com/pi-hole.net/wp-content/uploads/2016/12/Vortex-R.png
 dependencies:
   - name: librepod
-    version: 1.1.0
+    version: 1.1.1
     repository: https://librepod.github.io/charts
   - name: unbound
     version: 0.3.0

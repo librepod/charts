@@ -16,8 +16,6 @@ env:
 service:
   main:
     enabled: true
-    # Set static ip in order to point Wireguard's DNS to it
-    clusterIP: 10.43.111.110
     ports:
       http:
         enabled: true
