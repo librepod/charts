@@ -15,5 +15,5 @@ sources:
   - https://github.com/WeeJeWel/wg-easy
 dependencies:
   - name: librepod
-    version: 1.1.0
+    version: 1.2.0
     repository: https://librepod.github.io/charts
