@@ -22,7 +22,7 @@ sources:
 icon: https://i2.wp.com/pi-hole.net/wp-content/uploads/2016/12/Vortex-R.png
 dependencies:
   - name: librepod
-    version: 1.1.0
+    version: 1.1.1
     repository: https://librepod.github.io/charts
   - name: unbound
     version: 0.3.0

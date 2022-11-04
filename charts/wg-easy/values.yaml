@@ -14,7 +14,7 @@ env:
   WG_PORT: 51820
   WG_DEFAULT_ADDRESS: 10.6.0.x
   # Host should provide DNS service via Pi-Hole
-  WG_DEFAULT_DNS: '{{ .Values.hostIP }}'    
+  WG_DEFAULT_DNS: '{{ .Values.hostIP }}'
 
 securityContext:
   capabilities:
