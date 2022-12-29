@@ -2,7 +2,7 @@ apiVersion: v2
 name: wg-easy
 description: |
   The easiest way to run WireGuard VPN + Web-based Admin UI.
-version: 1.1.0
+version: 1.2.0
 appVersion: "7"
 kubeVersion: ">=1.16.0-0"
 type: application
@@ -10,10 +10,13 @@ keywords:
   - wireguard
   - vpn
 home: https://github.com/librepod/charts/tree/master/charts/wg-easy
+icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/wireguard.png
 sources:
   - https://github.com/librepod/charts/tree/master/charts/wg-easy
   - https://github.com/WeeJeWel/wg-easy
 dependencies:
   - name: librepod
-    version: 1.1.1
+    version: 1.2.0
     repository: https://librepod.github.io/charts
+annotations:
+  category: LibrePod System Apps
