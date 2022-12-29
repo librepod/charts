@@ -3,7 +3,7 @@
 create-cluster:
   mkdir -p $(pwd)/.data
   k3d cluster create librepod \
-    --image rancher/k3s:v1.23.10-k3s1 \
+    --image rancher/k3s:v1.25.3-k3s1 \
     --api-port 127.0.0.1:6443 \
     --port 80:80@loadbalancer \
     --port 443:443@loadbalancer \
