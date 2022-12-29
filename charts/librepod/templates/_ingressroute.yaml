@@ -34,7 +34,7 @@ within the librepod library.
 
   {{- $result := "" -}}
   {{- range $name, $ingress := $enabledIngresses -}}
-    {{- if and (hasKey $ingress "primary") $ingress.primary -}}
+    {{- if and (hasKey $ingress "main") $ingress.main -}}
       {{- $result = $name -}}
     {{- end -}}
   {{- end -}}

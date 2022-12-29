@@ -1,0 +1,42 @@
+{{/* Renders the ForecastleApp CRD objects required by the chart */}}
+
+{{/*
+This template serves as a blueprint for all ForecastleApp CRD objects that are created
+within the librepod library.
+*/}}
+
+{{/* Renders the ForecastleApp objectis required by the chart */}}
+{{- define "librepod.forecastleapp" -}}
+  {{- $primaryIngress := (include "librepod.ingress.primary" $)}}
+  {{- $dashboard := .Values.dashboard -}}
+  {{- $url := "" -}}
+
+  {{- if and $dashboard.expose $dashboard.url -}}
+    {{- $url = $dashboard.url -}}
+  {{- else if and $dashboard.expose $primaryIngress -}}
+    {{- $url = printf "https://%v" (index (get .Values.ingress $primaryIngress).hosts 0).host -}}
+  {{- end -}}
+
+  {{- $fullName := include "librepod.names.fullname" . -}}
+  {{- $appName := $fullName -}}
+
+---
+apiVersion: forecastle.stakater.com/v1alpha1
+kind: ForecastleApp
+metadata:
+  name: {{ $fullName }}
+spec:
+  name: {{ $dashboard.name | default (.Chart.Name | title) }}
+  group: {{ $dashboard.group | default .Chart.Annotations.category }}
+  icon: "{{ .Chart.Icon }}"
+  # urlFrom:
+  #   ingressRouteRef:
+  #     name: {{ $fullName }}
+  # Since `urlFrom.ingressRouteRef` is buggy (see https://github.com/stakater/Forecastle/pull/272),
+  # we had to use the `url` prop:
+  url: {{ $url }}
+  properties:
+    App Version: "{{ .Chart.AppVersion }}"
+    Chart Version: "{{ .Chart.Version }}"
+
+{{- end }}
