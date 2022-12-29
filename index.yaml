@@ -567,6 +567,31 @@ entries:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
   wg-easy:
+  - annotations:
+      category: LibrePod System Apps
+    apiVersion: v2
+    appVersion: "7"
+    created: "2022-12-29T20:13:11.241908494Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: 'The easiest way to run WireGuard VPN + Web-based Admin UI. '
+    digest: 53f6c1a7fb845c3ed7c167fa88309d59b6a8f1e47a85bf1845c13c03e7522846
+    home: https://github.com/librepod/charts/tree/master/charts/wg-easy
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/wireguard.png
+    keywords:
+    - wireguard
+    - vpn
+    kubeVersion: '>=1.16.0-0'
+    name: wg-easy
+    sources:
+    - https://github.com/librepod/charts/tree/master/charts/wg-easy
+    - https://github.com/WeeJeWel/wg-easy
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/wg-easy-1.2.0/wg-easy-1.2.0.tgz
+    version: 1.2.0
   - apiVersion: v2
     appVersion: "7"
     created: "2022-11-04T02:52:19.682478359Z"
@@ -611,4 +636,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-29T17:09:33.972271624Z"
+generated: "2022-12-29T20:13:11.241958493Z"
