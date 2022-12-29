@@ -69,6 +69,23 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/firefly-iii-0.1.0/firefly-iii-0.1.0.tgz
     version: 0.1.0
+  forecastle:
+  - apiVersion: v1
+    created: "2022-12-29T16:22:30.284035493Z"
+    description: forecastle chart that runs on kubernetes
+    digest: 730c05b48701e8352ce6deb70876e6ad12cc410fefd858a5794963948044240e
+    home: https://github.com/stakater/Forecastle
+    icon: https://github.com/stakater/Forecastle/raw/master/assets/web/forecastle-round-100px.png
+    keywords:
+    - forecastle
+    - kubernetes
+    maintainers:
+    - email: stakater@aurorasolutions.io
+      name: Stakater
+    name: forecastle
+    urls:
+    - https://github.com/librepod/charts/releases/download/forecastle-v1.0.113/forecastle-v1.0.113.tgz
+    version: v1.0.113
   hajimari:
   - apiVersion: v2
     appVersion: v0.2.0
@@ -585,4 +602,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-11-04T02:52:19.682564759Z"
+generated: "2022-12-29T16:22:30.284202994Z"
