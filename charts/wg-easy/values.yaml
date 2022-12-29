@@ -37,11 +37,13 @@ service:
         port: 51820
         protocol: UDP
 
-ingress:
-  main:
-    enabled: true
-    hosts:
-      - host: wireguard.libre.pod
+# We have an explicitly defined ingressroute.yaml template in this chart,
+# hence we omit providing ingress values here.
+# ingress:
+
+dashboard:
+  expose: true
+  url: "https://wireguard.libre.pod"
 
 persistence:
   config:
