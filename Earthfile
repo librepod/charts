@@ -14,10 +14,13 @@ testChart:
   RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
       && install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
+  # Install helm
+  RUN curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
   WORKDIR /test
 
   COPY --dir .git charts ./
-  COPY ./charts/traefik/traefik.yaml lintconf.yaml ct.yaml chart_schema.yaml .
+  COPY lintconf.yaml ct.yaml chart_schema.yaml .
 
   WITH DOCKER \
     --pull quay.io/helmpack/chart-testing:v3.7.1 \
@@ -33,8 +36,7 @@ testChart:
           --wait \
           --kubeconfig-update-default \
           --kubeconfig-switch-context \
-          --k3s-arg "--disable=traefik@server:*" \
-        && kubectl create -f traefik.yaml \
+        && helm install forecastle ./charts/forecastle \
         && until [ -n "$(kubectl wait deployment -n kube-system traefik --for condition=Available=True)" ]; do sleep 5; done \
         && docker run \
           --network host \
