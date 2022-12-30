@@ -5,7 +5,7 @@ testChart:
 
   ENV K3S_IMAGE=rancher/k3s:v1.25.3-k3s1
 
-  RUN apk add --no-cache curl bash git
+  RUN apk add --no-cache curl bash git just
 
   # Install k3d tool
   RUN curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.4.6 bash
@@ -20,7 +20,7 @@ testChart:
   WORKDIR /test
 
   COPY --dir .git charts ./
-  COPY lintconf.yaml ct.yaml chart_schema.yaml .
+  COPY Justfile k3d-config.yaml lintconf.yaml ct.yaml chart_schema.yaml .
 
   WITH DOCKER \
     --pull quay.io/helmpack/chart-testing:v3.7.1 \
@@ -31,13 +31,7 @@ testChart:
           --workdir=/data \
           --volume $(pwd):/data quay.io/helmpack/chart-testing:v3.7.1 ct lint \
           --config ct.yaml \
-        && k3d cluster create librepod \
-          --image $K3S_IMAGE \
-          --wait \
-          --kubeconfig-update-default \
-          --kubeconfig-switch-context \
-        && helm install forecastle ./charts/forecastle \
-        && until [ -n "$(kubectl wait deployment -n kube-system traefik --for condition=Available=True)" ]; do sleep 5; done \
+        && just create-cluster \
         && docker run \
           --network host \
           --workdir=/data \
