@@ -33,5 +33,6 @@ ingress:
     hosts:
       - host: trilium.libre.pod
 
-# serviceAccount:
-#   create: true
+dashboard:
+  expose: true
+  group: My Apps
