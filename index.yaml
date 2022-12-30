@@ -27,6 +27,29 @@ entries:
     - https://github.com/librepod/charts/releases/download/bitwarden-0.1.0/bitwarden-0.1.0.tgz
     version: 0.1.0
   firefly-iii:
+  - annotations:
+      category: My Apps
+    apiVersion: v2
+    appVersion: version-5.7.17
+    created: "2022-12-30T17:19:44.952004383Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    - name: postgres
+      repository: https://librepod.github.io/charts
+      version: 0.3.0
+    description: A free and open source personal finance manager
+    digest: 76c8fe1a80aa3e999f8c8a23338c71fb1b8b418aeea6739c72dd1ebfb31d9fbc
+    home: https://www.firefly-iii.org/
+    icon: https://raw.githubusercontent.com/firefly-iii/firefly-iii/main/.github/assets/img/logo-small.png
+    name: firefly-iii
+    sources:
+    - https://github.com/librepod/charts/charts/firefly-iii
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/firefly-iii-0.3.0/firefly-iii-0.3.0.tgz
+    version: 0.3.0
   - apiVersion: v2
     appVersion: version-5.7.10
     created: "2022-08-13T21:29:17.754959881Z"
@@ -689,4 +712,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-30T17:13:30.236945627Z"
+generated: "2022-12-30T17:19:44.952140585Z"
