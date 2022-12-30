@@ -550,6 +550,31 @@ entries:
       category: My Apps
     apiVersion: v2
     appVersion: 0.57.5
+    created: "2022-12-30T20:05:04.176288718Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: 'Trilium Notes is a hierarchical note taking application with focus
+      on building large personal knowledge bases. '
+    digest: 08c4d8db95a79ae06fd4eaef960e14b17a90de8411a5976e1cacf6f56f1f2c56
+    home: https://github.com/librepod/charts/tree/master/charts/trilium
+    icon: https://github.com/zadam/trilium/raw/master/images/app-icons/png/48x48.png
+    keywords:
+    - trilium
+    - notes
+    kubeVersion: '>=1.16.0-0'
+    name: trilium
+    sources:
+    - https://github.com/zadam/trilium
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/trilium-0.3.1/trilium-0.3.1.tgz
+    version: 0.3.1
+  - annotations:
+      category: My Apps
+    apiVersion: v2
+    appVersion: 0.57.5
     created: "2022-12-30T18:58:08.637975964Z"
     dependencies:
     - name: librepod
@@ -764,4 +789,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-30T18:58:08.638030963Z"
+generated: "2022-12-30T20:05:04.176351218Z"
