@@ -52,3 +52,7 @@ ingress:
     enabled: true
     hosts:
       - host: bitwarden.libre.pod
+
+dashboard:
+  expose: true
+  url: "https://bitwarden.libre.pod"

@@ -1,0 +1,3 @@
+persistence:
+  uploads:
+    storageClassName: local-path
