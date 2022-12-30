@@ -1,7 +1,7 @@
 apiVersion: v2
 name: firefly-iii
-version: 0.2.0
-appVersion: version-5.7.10
+version: 0.3.0
+appVersion: version-5.7.17
 description: A free and open source personal finance manager
 type: application
 home: https://www.firefly-iii.org/
@@ -10,8 +10,10 @@ sources:
 icon: https://raw.githubusercontent.com/firefly-iii/firefly-iii/main/.github/assets/img/logo-small.png
 dependencies:
   - name: librepod
-    version: 1.0.0
+    version: 1.2.0
     repository: https://librepod.github.io/charts
   - name: postgres
-    version: 0.2.0
+    version: 0.3.0
     repository: https://librepod.github.io/charts
+annotations:
+  category: My Apps
