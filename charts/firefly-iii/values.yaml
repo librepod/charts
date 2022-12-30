@@ -45,10 +45,6 @@ ingress:
     hosts:
       - host: firefly.libre.pod
 
-dashboard:
-  expose: true
-  url: "https://firefly.libre.pod"
-
 # A cronjob for [recurring Firefly III tasks](https://docs.firefly-iii.org/firefly-iii/advanced-installation/cron/).
 cronjob:
   # Set to true to enable the CronJob. Note that you need to specify either cronjob.auth.existingSecret or cronjob.auth.token for it to actually be deployed.
