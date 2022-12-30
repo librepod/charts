@@ -341,6 +341,30 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/librepod-0.1.0/librepod-0.1.0.tgz
     version: 0.1.0
+  librespeed:
+  - annotations:
+      category: My Apps
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-12-30T22:22:25.468618795Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    digest: bfefbb5fdb7aff687d9995541a65a2bd9b2b8b9fde2e60389b1dfd3010359bc7
+    home: https://github.com/librepod/charts/tree/master/charts/librespeed
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/librespeed.png
+    keywords:
+    - librespeed
+    - speedtest
+    kubeVersion: '>=1.16.0-0'
+    name: librespeed
+    sources:
+    - https://github.com/librespeed/speedtest
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/librespeed-1.0.0/librespeed-1.0.0.tgz
+    version: 1.0.0
   pihole:
   - annotations:
       category: LibrePod System Apps
@@ -789,4 +813,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-30T20:05:04.176351218Z"
+generated: "2022-12-30T22:22:25.468681998Z"
