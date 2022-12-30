@@ -1,0 +1,32 @@
+# See https://k3d.io/v5.0.1/usage/configfile/?h=k3s
+# 
+kind: Simple
+apiVersion: k3d.io/v1alpha4
+metadata:
+  name: librepod
+servers: 1
+agents: 1
+kubeAPI:
+  hostIP: 0.0.0.0
+  hostPort: "6443"
+image: rancher/k3s:v1.25.3-k3s1
+ports:
+  - port: 80:80
+    nodeFilters:
+    - loadbalancer
+  - port: 443:443
+    nodeFilters:
+    - loadbalancer
+  - port: 53:53
+    nodeFilters:
+    - loadbalancer
+options:
+  k3d:
+    wait: true
+    timeout: 120s
+    disableLoadbalancer: false
+    disableImageVolume: false
+    disableRollback: false
+  kubeconfig:
+    updateDefaultKubeconfig: true
+    switchCurrentContext: true
