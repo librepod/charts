@@ -37,6 +37,10 @@ ingress:
     middlewares:
       - add-admin-prefix
 
+dashboard:
+  expose: true
+  url: "https://pihole.libre.pod"
+
 persistence:
   wildcard-dns:
     enabled: true
