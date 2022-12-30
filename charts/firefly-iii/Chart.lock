@@ -1,9 +1,9 @@
 dependencies:
 - name: librepod
   repository: https://librepod.github.io/charts
-  version: 1.0.0
+  version: 1.2.0
 - name: postgres
   repository: https://librepod.github.io/charts
   version: 0.2.0
-digest: sha256:6ce985e5caf44983ff1fb8bf8fcbf43570eaad7a4f6f29c26ef4584e9fd5c47c
-generated: "2022-08-14T00:24:32.729717299+03:00"
+digest: sha256:2d4aaf6b12d96fd9eff06d1392776d5264f2b9034e235b1e64058ec464c9e60c
+generated: "2022-12-30T19:19:24.222637954+03:00"
