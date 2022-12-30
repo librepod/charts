@@ -1,0 +1,48 @@
+image:
+  repository: adolfintel/speedtest
+  pullPolicy: IfNotPresent
+  tag: ""
+
+env:
+  MODE: standalone
+  # Title of your speedtest. Default value: LibreSpeed
+  TITLE: LibreSpeed
+  # Whether to enable telemetry or not. Default value: false
+  # If telemetry is enabled, a stats page will be available at
+  # http://librespeed.libre.pod/results/stats.php, but a password must be specified.
+  TELEMETRY: true
+  # When set to true with telemetry enabled, test IDs are obfuscated, to avoid exposing the database internal sequential IDs. Default value: false
+  ENABLE_ID_OBFUSCATION: false
+  # When set to true with telemetry enabled, IP addresses and hostnames are redacted from the collected telemetry, for better privacy. Default value: false
+  REDACT_IP_ADDRESSES: false
+  # Password to access the stats page. If not set, stats page will not allow accesses.
+  PASSWORD: pass@w0rd
+  # Email address for GDPR requests. Must be specified when telemetry is enabled.
+  EMAIL:
+  # API key for ipinfo.io. Optional, but required if you expect to serve a large number of tests
+  IPINFO_APIKEY:
+  # If set to true, ISP info and distance will not be fetched from ipinfo.io. Default: value: false
+  DISABLE_IPINFO: true
+  # When DISABLE_IPINFO is set to false, this specifies how the distance from the server is measured. Can be either km for kilometers, mi for miles, or an empty string to disable distance measurement. Default value: km
+  DISTANCE: km
+  # Allows choosing a custom port for the included web server. Default value: 80. Note that you will have to expose it through docker with the -p argument
+  WEBPORT: 80
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 80
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: librespeed.libre.pod
+
+dashboard:
+  expose: true
+  url: "https://librespeed.libre.pod"
