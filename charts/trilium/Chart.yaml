@@ -3,7 +3,7 @@ name: trilium
 description: |
   Trilium Notes is a hierarchical note taking application with focus on
   building large personal knowledge bases.
-version: 0.3.0
+version: 0.3.1
 appVersion: 0.57.5
 kubeVersion: ">=1.16.0-0"
 type: application

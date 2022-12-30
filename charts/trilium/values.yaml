@@ -35,4 +35,4 @@ ingress:
 
 dashboard:
   expose: true
-  group: My Apps
+  url: "https://trilium.libre.pod"
