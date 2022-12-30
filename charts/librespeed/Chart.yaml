@@ -1,0 +1,20 @@
+apiVersion: v2
+name: librespeed
+description: |
+version: 1.0.0
+appVersion: latest
+kubeVersion: ">=1.16.0-0"
+type: application
+keywords:
+  - librespeed
+  - speedtest
+home: https://github.com/librepod/charts/tree/master/charts/librespeed
+sources:
+  - https://github.com/librespeed/speedtest
+icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/librespeed.png
+dependencies:
+  - name: librepod
+    version: 1.2.0
+    repository: https://librepod.github.io/charts
+annotations:
+  category: My Apps
