@@ -442,6 +442,25 @@ entries:
     - https://github.com/cheeba-ryba/charts/releases/download/pihole-2.5.6/pihole-2.5.6.tgz
     version: 2.5.6
   postgres:
+  - annotations:
+      category: Databases
+    apiVersion: v2
+    appVersion: 10-alpine
+    created: "2022-12-30T17:13:30.236852627Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: PostgreSQL - The World's Most Advanced Open Source Relational Database
+    digest: 6e86daeccb898ca1624018a6ae3334e85320fd2759b87bc0947b61aa7d328c1f
+    kubeVersion: '>=1.16.0-0'
+    name: postgres
+    sources:
+    - https://github.com/librepod/charts/postgres
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/postgres-0.3.0/postgres-0.3.0.tgz
+    version: 0.3.0
   - apiVersion: v2
     appVersion: 10-alpine
     created: "2022-08-13T21:10:01.855752597Z"
@@ -670,4 +689,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-30T16:16:32.031364706Z"
+generated: "2022-12-30T17:13:30.236945627Z"
