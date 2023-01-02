@@ -1,9 +1,9 @@
 apiVersion: v2
-name: bitwarden
+name: vaultwarden
 description: |
   Open source password management solutions for individuals, teams,
   and business organizations
-version: 0.2.0
+version: 0.2.1
 appVersion: 1.27.0-alpine
 kubeVersion: ">=1.16.0-0"
 type: application
@@ -11,10 +11,9 @@ keywords:
   - bitwarden
   - vaultwarden
   - password
-home: https://github.com/librepod/charts/tree/master/charts/bitwarden
-icon: https://avatars.githubusercontent.com/u/15990069
+home: https://github.com/librepod/charts/tree/master/charts/vaultwarden
+icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/vaultwarden.png
 sources:
-  - https://github.com/bitwarden/server
   - https://github.com/dani-garcia/vaultwarden
 dependencies:
   - name: librepod

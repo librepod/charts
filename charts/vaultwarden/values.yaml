@@ -51,8 +51,8 @@ ingress:
   main:
     enabled: true
     hosts:
-      - host: bitwarden.libre.pod
+      - host: vaultwarden.libre.pod
 
 dashboard:
   expose: true
-  url: "https://bitwarden.libre.pod"
+  url: "https://vaultwarden.libre.pod"
