@@ -743,6 +743,33 @@ entries:
     urls:
     - https://github.com/cheeba-ryba/charts/releases/download/unbound-0.1.0/unbound-0.1.0.tgz
     version: 0.1.0
+  vaultwarden:
+  - annotations:
+      category: My Apps
+    apiVersion: v2
+    appVersion: 1.27.0-alpine
+    created: "2023-01-02T10:10:00.231902023Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: 'Open source password management solutions for individuals, teams,
+      and business organizations '
+    digest: c601e646c42655c9031d486a4dc22f268d25eb6274587cbd345db0141b76815e
+    home: https://github.com/librepod/charts/tree/master/charts/vaultwarden
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/vaultwarden.png
+    keywords:
+    - bitwarden
+    - vaultwarden
+    - password
+    kubeVersion: '>=1.16.0-0'
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/vaultwarden-0.2.1/vaultwarden-0.2.1.tgz
+    version: 0.2.1
   wg-easy:
   - annotations:
       category: LibrePod System Apps
@@ -813,4 +840,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-30T22:22:25.468681998Z"
+generated: "2023-01-02T10:10:00.231966623Z"
