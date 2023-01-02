@@ -9,7 +9,7 @@ image:
 
 env:
   TZ: Europe/Moscow
-  PASSWORD: pass@w0rd
+  PASSWORD: admin
   WG_HOST: '{{ .Values.hostIP }}'
   WG_PORT: 51820
   WG_DEFAULT_ADDRESS: 10.6.0.x
@@ -43,7 +43,7 @@ service:
 
 dashboard:
   expose: true
-  url: "https://wireguard.libre.pod"
+  url: "https://wg.libre.pod"
 
 persistence:
   config:

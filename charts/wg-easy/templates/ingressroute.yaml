@@ -16,7 +16,7 @@ spec:
           port: 80
           passHostHeader: true
     - kind: Rule
-      match: Host(`wireguard.libre.pod`)
+      match: Host(`wg.libre.pod`)
       services:
         - name: wg-easy
           port: 80 
