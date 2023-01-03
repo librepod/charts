@@ -53,6 +53,29 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/bitwarden-0.1.0/bitwarden-0.1.0.tgz
     version: 0.1.0
+  filebrowser:
+  - annotations:
+      category: LibrePod System Apps
+    apiVersion: v2
+    appVersion: v2-s6
+    created: "2023-01-03T13:43:45.912838242Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: 'Filebrowser provides a file managing interface within a specified
+      directory and it can be used to upload, delete, preview, rename and edit your
+      files. '
+    digest: 11d74f5175164920ce25c9cca550b700c479087e934e8607cce002890b5c83d1
+    home: https://filebrowser.org/
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/filebrowser.png
+    name: filebrowser
+    sources:
+    - https://github.com/librepod/charts/charts/filebrowser
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/filebrowser-1.0.0/filebrowser-1.0.0.tgz
+    version: 1.0.0
   firefly-iii:
   - annotations:
       category: My Apps
@@ -865,4 +888,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-01-02T10:22:32.394956855Z"
+generated: "2023-01-03T13:43:45.913150545Z"
