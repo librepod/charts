@@ -12,6 +12,12 @@ persistence:
     accessMode: ReadWriteOnce
     size: 5Gi
     retain: true
+  certs:
+    enabled: true
+    type: hostPath
+    mountPath: /data/certs
+    hostPath: /exports/k3s/certs
+    retain: true
   database:
     enabled: true
     type: pvc
