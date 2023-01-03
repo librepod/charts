@@ -1,0 +1,61 @@
+image:
+  repository: filebrowser/filebrowser
+  pullPolicy: IfNotPresent
+  tag: ""
+
+persistence:
+  data:
+    enabled: true
+    type: pvc
+    mountPath: /data
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 5Gi
+    retain: true
+  database:
+    enabled: true
+    type: pvc
+    mountPath: /database
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 100Mi
+    retain: true
+  settings-json:
+    enabled: true
+    type: configMap
+    name: '{{ include "librepod.names.fullname" . }}-settings-json'
+    mountPath: /config/settings.json
+    subPath: settings.json
+
+configmap:
+  settings-json:
+    enabled: true
+    data:
+      settings.json: |
+        {
+          "port": 8080,
+          "baseURL": "",
+          "address": "",
+          "log": "stdout",
+          "database": "/database/filebrowser.db",
+          "root": "/data"
+        }
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 8080
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: filebrowser.libre.pod
+
+dashboard:
+  expose: true
+  url: "https://filebrowser.libre.pod"

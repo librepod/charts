@@ -1,0 +1,18 @@
+apiVersion: v2
+name: filebrowser
+version: 1.0.0
+appVersion: v2-s6
+description: |
+  Filebrowser provides a file managing interface within a specified directory and it
+  can be used to upload, delete, preview, rename and edit your files.
+type: application
+home: https://filebrowser.org/
+sources:
+  - https://github.com/librepod/charts/charts/filebrowser
+icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/filebrowser.png
+dependencies:
+  - name: librepod
+    version: 1.2.0
+    repository: https://librepod.github.io/charts
+annotations:
+  category: LibrePod System Apps
