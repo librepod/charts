@@ -1,8 +1,10 @@
 # The 'hostIP' is supposed to be set upon chart installation:
 # helm install pihole --set hostIP="192.168.1.200" \
-#   --set wgHost="relay.librepod.org:6000"
+#   --set wgHost="relay.librepod.org"
+#   --set wgPort="6000"
 hostIP: 127.0.0.1
 wgHost:
+wgPort:
 
 image:
   repository: weejewel/wg-easy
@@ -13,7 +15,7 @@ env:
   TZ: Europe/Moscow
   PASSWORD: admin
   WG_HOST: '{{ default .Values.hostIP .Values.wgHost }}'
-  WG_PORT: 51820
+  WG_PORT: '{{ default 51820 .Values.wgPort }}'
   WG_DEFAULT_ADDRESS: 10.6.0.x
   # Host should provide DNS service via Pi-Hole
   WG_DEFAULT_DNS: '{{ .Values.hostIP }}'
