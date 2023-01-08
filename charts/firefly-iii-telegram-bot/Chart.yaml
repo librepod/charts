@@ -1,0 +1,15 @@
+apiVersion: v2
+name: firefly-iii-telegram-bot
+version: 0.1.0
+appVersion: dev
+description: Firefly III Telegram bot for faster interaction with the service.
+type: application
+home: https://github.com/cyxou/firefly-iii-telegram-bot
+sources:
+  - https://github.com/librepod/charts/charts/firefly-iii-telegram-bot
+dependencies:
+  - name: librepod
+    version: 1.2.0
+    repository: https://librepod.github.io/charts
+annotations:
+  category: My Apps

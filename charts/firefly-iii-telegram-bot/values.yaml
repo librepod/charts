@@ -1,0 +1,19 @@
+image:
+  repository: cyxou/firefly-iii-telegram-bot
+  pullPolicy: Always
+  tag: ""
+
+botParams:
+  telegramBotToken: YOUR_TELEGRAM_BOT_TOKEN
+  fireflyUrl: http://firefly-iii:8080
+  fireflyAccessToken: YOUR_FIREFLY_ACCESS_TOKEN
+
+env:
+  DEBUG: "bot:*,firefly:axios:*"
+  BOT_TOKEN: "{{ .Values.botParams.telegramBotToken }}"
+  FIREFLY_URL: "{{ .Values.botParams.fireflyUrl }}"
+  FIREFLY_ACCESS_TOKEN: "{{ .Values.botParams.fireflyAccessToken }}"
+
+service:
+  main:
+    enabled: false
