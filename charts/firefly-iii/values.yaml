@@ -18,13 +18,13 @@ persistence:
 
 # See docs at: https://github.com/firefly-iii/firefly-iii/blob/main/.env.example
 env:
-  APP_KEY: "CHANGEMECHANGEMECHANGEMECHANGEME"
+  APP_KEY: SomeRandomStringOf32CharsExactly
   DB_HOST: firefly-iii-postgres
   DB_CONNECTION: pgsql
   DB_PORT: "5432"
-  DB_DATABASE: postgres
-  DB_USERNAME: postgres
-  DB_PASSWORD: "YOURDBPASSWORD"
+  DB_DATABASE: firefly
+  DB_USERNAME: firefly
+  DB_PASSWORD: somepassword
   DEFAULT_LANGUAGE: "en_US"
   DEFAULT_LOCALE: "equal"
   TZ: "Europe/Moscow"
@@ -77,3 +77,6 @@ cronjob:
 # Enable and configure postgresql subchart under this key.
 postgres:
   fullnameOverride: firefly-iii-postgres
+  env:
+    POSTGRES_USER: firefly
+    POSTGRES_PASSWORD: somepassword
