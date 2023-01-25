@@ -169,6 +169,25 @@ entries:
   - annotations:
       category: My Apps
     apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-01-25T18:53:57.806923066Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: Firefly III Telegram bot for faster interaction with the service.
+    digest: 043078dad51a9bed0d0d68922c82d078860cf651c7397554d3608a3de89847e3
+    home: https://github.com/cyxou/firefly-iii-telegram-bot
+    name: firefly-iii-telegram-bot
+    sources:
+    - https://github.com/librepod/charts/charts/firefly-iii-telegram-bot
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/firefly-iii-telegram-bot-0.2.0/firefly-iii-telegram-bot-0.2.0.tgz
+    version: 0.2.0
+  - annotations:
+      category: My Apps
+    apiVersion: v2
     appVersion: dev
     created: "2023-01-08T18:29:11.889197389Z"
     dependencies:
@@ -981,4 +1000,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-01-08T18:29:11.889273589Z"
+generated: "2023-01-25T18:53:57.807031567Z"
