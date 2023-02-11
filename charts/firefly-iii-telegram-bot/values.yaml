@@ -4,12 +4,12 @@ image:
   tag: ""
 
 botParams:
-  fireflyAccessToken: "<YOUR_FIREFLY_ACCESS_TOKEN>"
   fireflyApiUrl: http://firefly-iii:8080
   fireflyUrl: https://firefly.libre.pod
   telegramBotToken: "<YOUR_TELEGRAM_BOT_TOKEN>"
 
 env:
+  TZ: "Europe/Moscow"
   DEBUG: "bot:*,firefly:axios:*"
   BOT_TOKEN: '{{ .Values.botParams.telegramBotToken }}'
   FIREFLY_URL: '{{ .Values.botParams.fireflyUrl }}'
@@ -19,3 +19,13 @@ env:
 service:
   main:
     enabled: false
+
+persistence:
+  sessions:
+    enabled: true
+    type: pvc
+    mountPath: /home/node/app/sessions
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 100Mi
+    retain: true
