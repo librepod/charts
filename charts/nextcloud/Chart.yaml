@@ -1,0 +1,26 @@
+apiVersion: v2
+name: nextcloud
+description: A file sharing server that puts the control and security of your own data back into your hands.
+version: 0.1.0
+appVersion: 25.0.2
+kubeVersion: ">=1.16.0-0"
+type: application
+keywords:
+  - nextcloud
+  - owncloud
+  - storage
+  - private cloud
+home: https://github.com/librepod/charts/tree/master/charts/nextcloud
+icon: https://cdn.rawgit.com/docker-library/docs/defa5ffc7123177acd60ddef6e16bddf694cc35f/nextcloud/logo.svg
+sources:
+  - https://github.com/nextcloud
+  - https://github.com/nextcloud/helm
+dependencies:
+  - name: librepod
+    version: 1.2.0
+    repository: https://librepod.github.io/charts
+  - name: nextcloud
+    version: 3.3.6
+    repository: https://nextcloud.github.io/helm/
+annotations:
+  category: My Apps
