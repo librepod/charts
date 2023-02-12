@@ -1,0 +1,20 @@
+apiVersion: v2
+name: dashy
+description: | 
+  Dashy helps you organize your self-hosted services by making them
+  accessible from a single place.
+version: 0.1.0
+appVersion: 2.1.1
+kubeVersion: ">=1.16.0-0"
+type: application
+keywords:
+  - dashy
+  - startpage
+home: https://github.com/librepod/charts/tree/master/charts/dashy
+sources:
+  - https://github.com/Lissy93/dashy
+  - https://hub.docker.com/r/lissy93/dashy
+dependencies:
+  - name: librepod
+    version: 1.1.1
+    repository: https://librepod.github.io/charts
