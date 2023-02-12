@@ -1,0 +1,27 @@
+---
+# For configuration options and examples, please see:
+# https://github.com/benphelps/homepage/wiki/Services
+
+- LibrePod:
+
+  - Wireguard:
+      href: https://wireguard.libre.pod
+      description: Grant access to your LibrePod
+
+  - Pi-hole:
+      href: https://pihole.libre.pod
+      description: Network-wide ad blocking
+
+  - Traefik:
+      href: https://traefik.libre.pod
+      description: The Cloud-Native application proxy
+
+- My Second Group:
+  - My Second Service:
+      href: http://localhost/
+      description: Homepage is the best
+
+- My Third Group:
+  - My Third Service:
+      href: http://localhost/
+      description: Homepage is 😎
