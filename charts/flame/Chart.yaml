@@ -1,0 +1,21 @@
+apiVersion: v2
+name: flame
+description: |
+  Flame is self-hosted startpage for your server. Its design is inspired (heavily) by SUI.
+  Flame is very easy to setup and use. With built-in editors, it allows you to setup your very
+  own application hub in no time - no file editing necessary.
+version: 0.1.0
+appVersion: 2.3.0
+kubeVersion: ">=1.16.0-0"
+type: application
+keywords:
+  - flame
+  - startpage
+home: https://github.com/librepod/charts/tree/master/charts/flame
+sources:
+  - https://github.com/pawelmalak/flame1
+  - https://hub.docker.com/r/pawelmalak/flame
+dependencies:
+  - name: librepod
+    version: 1.1.1
+    repository: https://librepod.github.io/charts

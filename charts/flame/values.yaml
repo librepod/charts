@@ -1,0 +1,37 @@
+# The 'hostIP' is supposed to be set upon chart installation:
+# helm install pihole --set hostIP="192.168.1.200"
+hostIP: 127.0.0.1
+
+image:
+  repository: pawelmalak/flame
+  pullPolicy: IfNotPresent
+  tag: ""
+
+env:
+  PASSWORD: pass@w0rd
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 5005
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: libre.pod
+      - host: "{{ .Values.hostIP }}"
+
+persistence:
+  data:
+    enabled: true
+    type: pvc
+    mountPath: /app/data
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 100Mi
+    retain: true
