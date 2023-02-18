@@ -1,0 +1,5 @@
+persistence:
+  data:
+    storageClassName: local-path
+  config:
+    storageClassName: local-path
