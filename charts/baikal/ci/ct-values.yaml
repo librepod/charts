@@ -1,5 +1,5 @@
 persistence:
-  data:
+  specific-data:
     storageClassName: local-path
-  config:
+  config-data:
     storageClassName: local-path

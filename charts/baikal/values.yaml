@@ -23,7 +23,9 @@ dashboard:
   url: "https://baikal.libre.pod"
 
 persistence:
-  data:
+  config:
+    enabled: false
+  specific-data:
     enabled: true
     type: pvc
     mountPath: /var/www/baikal/Specific
@@ -31,7 +33,7 @@ persistence:
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: true
-  config:
+  config-data:
     enabled: true
     type: pvc
     mountPath: /var/www/baikal/config
