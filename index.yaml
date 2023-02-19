@@ -1,5 +1,34 @@
 apiVersion: v1
 entries:
+  baikal:
+  - annotations:
+      category: My Apps
+    apiVersion: v2
+    appVersion: 0.9.3-nginx
+    created: "2023-02-19T10:33:58.669435517Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: The open source CardDAV, CalDAV and WebDAV server
+    digest: 01aa84848ee65089738a038fc205d4dca07b8b6919015bf6635656e6fd35832f
+    home: https://github.com/librepod/charts/tree/master/charts/baikal
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/baikal.png
+    keywords:
+    - baikal
+    - webdav
+    - caldav
+    - carddav
+    kubeVersion: '>=1.16.0-0'
+    name: baikal
+    sources:
+    - https://github.com/librepod/charts/tree/master/charts/baikal
+    - https://github.com/sabre-io/baikal
+    - https://github.com/ckulka/baikal-docker
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/baikal-1.0.0/baikal-1.0.0.tgz
+    version: 1.0.0
   bitwarden:
   - annotations:
       category: My Apps
@@ -1042,4 +1071,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-02-12T14:55:52.655031106Z"
+generated: "2023-02-19T10:33:58.669528219Z"
