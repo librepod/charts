@@ -1,0 +1,43 @@
+image:
+  repository: ckulka/baikal
+  pullPolicy: IfNotPresent
+  tag: ""
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 80
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: baikal.libre.pod
+
+dashboard:
+  expose: true
+  url: "https://baikal.libre.pod"
+
+persistence:
+  config:
+    enabled: false
+  specific-data:
+    enabled: true
+    type: pvc
+    mountPath: /var/www/baikal/Specific
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    retain: true
+  config-data:
+    enabled: true
+    type: pvc
+    mountPath: /var/www/baikal/config
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 50Mi
+    retain: true
