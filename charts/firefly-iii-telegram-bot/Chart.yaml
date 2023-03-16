@@ -1,6 +1,6 @@
 apiVersion: v2
 name: firefly-iii-telegram-bot
-version: 0.3.0
+version: 0.3.1
 appVersion: 1.1.1
 description: Firefly III Telegram bot for faster interaction with the service.
 type: application
