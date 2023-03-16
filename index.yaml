@@ -725,6 +725,36 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/postgres-0.1.2/postgres-0.1.2.tgz
     version: 0.1.2
+  syncthing:
+  - annotations:
+      category: My Apps
+    apiVersion: v2
+    appVersion: "1.23"
+    created: "2023-03-16T16:45:36.487747554Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: 'Syncthing is a continuous file synchronization program. It synchronizes
+      files between two or more computers in real time, safely protected from prying
+      eyes. '
+    digest: 5ef8fffe8eb308767c5fe5bbf0e7915f5d2e744a852bb4d99711e9f7a6d87ad1
+    home: https://github.com/librepod/charts/tree/master/charts/syncthing
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/syncthing.png
+    keywords:
+    - sync
+    - filesync
+    - syncthing
+    kubeVersion: '>=1.16.0-0'
+    name: syncthing
+    sources:
+    - https://github.com/librepod/charts/tree/master/charts/syncthing
+    - https://github.com/syncthing/syncthing
+    - https://github.com/syncthing/syncthing/blob/main/README-Docker.md
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/syncthing-0.1.0/syncthing-0.1.0.tgz
+    version: 0.1.0
   trilium:
   - annotations:
       category: My Apps
@@ -1071,4 +1101,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-02-19T10:33:58.669528219Z"
+generated: "2023-03-16T16:45:36.488437558Z"
