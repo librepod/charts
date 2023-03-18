@@ -35,11 +35,11 @@ ingress:
   main:
     enabled: true
     hosts:
-      - host: "{{ .Chart.Name }}.libre.pod"
+      - host: "syncthing.libre.pod"
 
 dashboard:
   expose: true
-  url: "https://{{ .Chart.Name }}.libre.pod"
+  url: "https://syncthing.libre.pod"
 
 persistence:
   data:
