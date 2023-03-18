@@ -749,6 +749,35 @@ entries:
       category: My Apps
     apiVersion: v2
     appVersion: "1.23"
+    created: "2023-03-18T03:47:40.779029349Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: 'Syncthing is a continuous file synchronization program. It synchronizes
+      files between two or more computers in real time, safely protected from prying
+      eyes. '
+    digest: d5a2dab85a497f4abb3b7b9be7dcd5e11acc10b9ba4583caf7e0b486ceb87e44
+    home: https://github.com/librepod/charts/tree/master/charts/syncthing
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/syncthing.png
+    keywords:
+    - sync
+    - filesync
+    - syncthing
+    kubeVersion: '>=1.16.0-0'
+    name: syncthing
+    sources:
+    - https://github.com/librepod/charts/tree/master/charts/syncthing
+    - https://github.com/syncthing/syncthing
+    - https://github.com/syncthing/syncthing/blob/main/README-Docker.md
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/syncthing-0.1.1/syncthing-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      category: My Apps
+    apiVersion: v2
+    appVersion: "1.23"
     created: "2023-03-16T16:45:36.487747554Z"
     dependencies:
     - name: librepod
@@ -1120,4 +1149,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-03-16T16:53:59.443239181Z"
+generated: "2023-03-18T03:47:40.779121652Z"
