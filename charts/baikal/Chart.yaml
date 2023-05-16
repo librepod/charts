@@ -1,7 +1,7 @@
 apiVersion: v2
 name: baikal
 description: The open source CardDAV, CalDAV and WebDAV server
-version: 1.0.0
+version: 1.1.0
 appVersion: 0.9.3-nginx
 kubeVersion: ">=1.16.0-0"
 type: application

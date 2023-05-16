@@ -17,6 +17,9 @@ ingress:
     enabled: true
     hosts:
       - host: baikal.libre.pod
+    # See templates/middleware.yaml for details.
+    middlewares:
+      - redirect-card-cal-dav
 
 dashboard:
   expose: true
