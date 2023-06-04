@@ -1,7 +1,6 @@
 apiVersion: v2
 name: adguard-home
-description: Network-wide ads & trackers blocking DNS server 
-type: application
+description: Network-wide ads & trackers blocking DNS server
 version: 0.1.0
 appVersion: v0.107.29
 kubeVersion: ">=1.16.0-0"

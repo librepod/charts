@@ -51,7 +51,7 @@ dashboard:
 initContainers:
   - name: configmap-updater-container
     image: busybox:1.28
-    command: 
+    command:
       - sh
       - -c
       - |
@@ -100,7 +100,7 @@ configmap:
   adguardhome-config:
     enabled: true
     data:
-      # See here for config specs: 
+      # See here for config specs:
       # https://github.com/AdguardTeam/Adguardhome/wiki/Configuration#configuration-file
       AdGuardHome.yaml: |
         bind_host: 0.0.0.0
