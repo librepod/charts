@@ -601,6 +601,27 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/librespeed-1.0.0/librespeed-1.0.0.tgz
     version: 1.0.0
+  mariadb:
+  - annotations:
+      category: Databases
+    apiVersion: v2
+    appVersion: "10.6"
+    created: "2023-06-04T19:47:16.933152642Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: MariaDB Server is a high performing open source relational database,
+      forked from MySQL
+    digest: 56f3a776765cfd755ede6028389fd741b8b873942fc3e30cdcbedeb952678c67
+    kubeVersion: '>=1.16.0-0'
+    name: mariadb
+    sources:
+    - https://github.com/librepod/charts/mariadb
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/mariadb-0.1.0/mariadb-0.1.0.tgz
+    version: 0.1.0
   pihole:
   - annotations:
       category: LibrePod System Apps
@@ -1244,4 +1265,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-06-04T13:39:41.035817905Z"
+generated: "2023-06-04T19:47:16.933250046Z"
