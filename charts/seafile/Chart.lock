@@ -1,0 +1,9 @@
+dependencies:
+- name: librepod
+  repository: https://librepod.github.io/charts
+  version: 1.2.0
+- name: mariadb
+  repository: https://librepod.github.io/charts
+  version: 0.1.0
+digest: sha256:e5aa2030142116372756e00f93c35cbccebc1ebd3fd85fb36db3ddf36b490d58
+generated: "2023-06-04T22:54:52.121777999+03:00"
