@@ -1,0 +1,15 @@
+apiVersion: v2
+appVersion: "10.6"
+name: mariadb
+description: MariaDB Server is a high performing open source relational database, forked from MySQL
+version: 0.1.0
+kubeVersion: ">=1.16.0-0"
+type: application
+sources:
+  - https://github.com/librepod/charts/mariadb
+dependencies:
+  - name: librepod
+    version: 1.2.0
+    repository: https://librepod.github.io/charts
+annotations:
+  category: Databases

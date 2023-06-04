@@ -1,0 +1,6 @@
+env:
+  MARIADB_ROOT_PASSWORD: somepassword
+
+persistence:
+  data:
+    storageClass: local-path
