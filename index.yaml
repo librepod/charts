@@ -860,6 +860,38 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/postgres-0.1.2/postgres-0.1.2.tgz
     version: 0.1.2
+  seafile:
+  - annotations:
+      category: My Apps
+    apiVersion: v2
+    appVersion: 10.0.1
+    created: "2023-06-04T20:13:20.413449495Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    - name: mariadb
+      repository: https://librepod.github.io/charts
+      version: 0.1.0
+    description: Reliable and Performant File Sync and Share Solution
+    digest: 942d58bc4dcc2583ebe656245eebe300c8216017e6a28d3a368c85ef24c31953
+    home: https://github.com/librepod/charts/tree/master/charts/seafile
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/seafile.png
+    keywords:
+    - seafile
+    - filesync
+    - file share
+    kubeVersion: '>=1.16.0-0'
+    name: seafile
+    sources:
+    - https://github.com/librepod/charts/tree/master/charts/seafile
+    - https://www.seafile.com/en/home/
+    - https://manual.seafile.com/config/seafile-conf/
+    - https://hub.docker.com/r/seafileltd/seafile-mc/tags
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/seafile-0.1.0/seafile-0.1.0.tgz
+    version: 0.1.0
   syncthing:
   - annotations:
       category: My Apps
@@ -1265,4 +1297,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-06-04T19:47:16.933250046Z"
+generated: "2023-06-04T20:13:20.414000404Z"
