@@ -1,0 +1,8 @@
+persistence:
+  data:
+    storageClassName: local-path
+
+mariadb:
+  persistence:
+    data:
+      storageClassName: local-path
