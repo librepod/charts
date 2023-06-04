@@ -1,0 +1,29 @@
+apiVersion: v2
+name: adguard-home
+description: Network-wide ads & trackers blocking DNS server 
+type: application
+version: 0.1.0
+appVersion: v0.107.29
+kubeVersion: ">=1.16.0-0"
+type: application
+keywords:
+  - adguard
+  - adguard-home
+  - adblock
+  - ads
+  - dns
+home: https://github.com/librepod/charts/tree/master/charts/adguard-home
+sources:
+  - https://github.com/librepod/charts/tree/master/charts/adguard-home
+  - https://adguard.com/en/adguard-home/overview.html
+  - https://github.com/AdguardTeam/AdGuardHome
+icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/adguard-home.png
+dependencies:
+  - name: librepod
+    version: 1.2.0
+    repository: https://librepod.github.io/charts
+  - name: unbound
+    version: 0.3.0
+    repository: https://librepod.github.io/charts
+annotations:
+  category: LibrePod System Apps

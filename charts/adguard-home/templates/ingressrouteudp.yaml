@@ -1,0 +1,13 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: adguard-home-dns
+spec:
+  entryPoints:
+    - dns
+  routes:
+    - services:
+      - name: adguard-home-dns
+        port: 53
+        weight: 10
