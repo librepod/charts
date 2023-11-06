@@ -170,6 +170,29 @@ entries:
   - annotations:
       category: My Apps
     apiVersion: v2
+    appVersion: version-6.0.30
+    created: "2023-11-06T14:06:02.184570536Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    - name: postgres
+      repository: https://librepod.github.io/charts
+      version: 0.3.0
+    description: A free and open source personal finance manager
+    digest: 361ac1040227ba5c9a4d00f050757f00bc63b36dc7ecaef3f13b93af1be2e4e7
+    home: https://www.firefly-iii.org/
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/firefly.png
+    name: firefly-iii
+    sources:
+    - https://github.com/librepod/charts/charts/firefly-iii
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/firefly-iii-0.4.0/firefly-iii-0.4.0.tgz
+    version: 0.4.0
+  - annotations:
+      category: My Apps
+    apiVersion: v2
     appVersion: version-5.7.18
     created: "2023-02-12T14:55:52.654933307Z"
     dependencies:
@@ -1322,4 +1345,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-28T18:40:32.390836937Z"
+generated: "2023-11-06T14:06:02.184681774Z"
