@@ -4,7 +4,7 @@ image:
   tag: ""
 
 botParams:
-  fireflyApiUrl: http://firefly-iii:8080
+  fireflyApiUrl: http://firefly-iii:8080/api
   fireflyUrl: https://firefly.libre.pod
   telegramBotToken: "<YOUR_TELEGRAM_BOT_TOKEN>"
 
@@ -14,7 +14,6 @@ env:
   BOT_TOKEN: '{{ .Values.botParams.telegramBotToken }}'
   FIREFLY_URL: '{{ .Values.botParams.fireflyUrl }}'
   FIREFLY_API_URL: '{{ .Values.botParams.fireflyApiUrl }}'
-  FIREFLY_ACCESS_TOKEN: '{{ .Values.botParams.fireflyAccessToken }}'
 
 service:
   main:
