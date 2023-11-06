@@ -1,0 +1,3 @@
+persistence:
+  sessions:
+    storageClassName: local-path

@@ -1,0 +1,5 @@
+persistence:
+  work-data:
+    storageClassName: local-path
+  conf-data:
+    storageClassName: local-path

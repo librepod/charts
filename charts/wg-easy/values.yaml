@@ -17,6 +17,8 @@ env:
   WG_HOST: '{{ default .Values.hostIP .Values.wgHost }}'
   WG_PORT: '{{ default 51820 .Values.wgPort }}'
   WG_DEFAULT_ADDRESS: 10.6.0.x
+  # WireGuard interface MTU for devices. 1280 is a safe bet for most networks
+  WG_MTU: 1280
   # Host should provide DNS service via Pi-Hole
   WG_DEFAULT_DNS: '{{ .Values.hostIP }}'
 

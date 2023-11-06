@@ -1,0 +1,25 @@
+apiVersion: v2
+name: syncthing
+description: |
+  Syncthing is a continuous file synchronization program.
+  It synchronizes files between two or more computers in real time, safely protected from prying eyes.
+version: 0.1.1
+appVersion: "1.23"
+kubeVersion: ">=1.16.0-0"
+type: application
+keywords:
+  - sync
+  - filesync
+  - syncthing
+home: https://github.com/librepod/charts/tree/master/charts/syncthing
+sources:
+  - https://github.com/librepod/charts/tree/master/charts/syncthing
+  - https://github.com/syncthing/syncthing
+  - https://github.com/syncthing/syncthing/blob/main/README-Docker.md
+icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/syncthing.png
+dependencies:
+  - name: librepod
+    version: 1.2.0
+    repository: https://librepod.github.io/charts
+annotations:
+  category: My Apps

@@ -1,7 +1,7 @@
 apiVersion: v2
 name: firefly-iii
-version: 0.3.2
-appVersion: version-5.7.18
+version: 0.4.0
+appVersion: version-6.0.30
 description: A free and open source personal finance manager
 type: application
 home: https://www.firefly-iii.org/

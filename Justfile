@@ -41,5 +41,9 @@ install-dry-run chart: (update-chart-deps chart)
     --debug \
     --dry-run
 
+upgrade chart:
+  helm upgrade -f ./charts/{{chart}}/values.yaml {{chart}} ./charts/{{chart}} \
+    --set hostIP=$(kubectl get node -o=jsonpath='{.items[0].status.addresses[0].address}') \
+
 uninstall chart:
   helm uninstall {{chart}}

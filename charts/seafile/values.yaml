@@ -1,0 +1,47 @@
+image:
+  repository: seafileltd/seafile-mc
+  pullPolicy: IfNotPresent
+  tag: ""
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        port: 80
+
+env:
+  TIME_ZONE: Europe/Moscow
+  DB_HOST: seafile-mariadb
+  DB_ROOT_PASSWD: somepassword
+  SEAFILE_ADMIN_EMAIL: admin@libre.pod
+  SEAFILE_ADMIN_PASSWORD: admin
+  SEAFILE_SERVER_LETSENCRYPT: false
+  SEAFILE_SERVER_HOSTNAME: seafile.libre.pod
+  FORCE_HTTPS_IN_CONF: true
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: seafile.libre.pod
+
+dashboard:
+  expose: true
+  url: https://seafile.libre.pod
+
+persistence:
+  data:
+    enabled: true
+    type: pvc
+    mountPath: /shared
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 20Gi
+    retain: true
+
+# Enable and configure postgresql subchart under this key.
+mariadb:
+  fullnameOverride: seafile-mariadb
+  env:
+    MYSQL_ROOT_PASSWORD: somepassword

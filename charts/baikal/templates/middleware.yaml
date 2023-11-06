@@ -1,0 +1,14 @@
+# For iOS clients we need to redirect /.well-known/carddav and
+# /.well-known/caldav to just /dav.php 
+# See https://homan.ee/en/iphone-calendar-synchronization-ios-settings-for-baikal-caldav
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-card-cal-dav
+  labels:
+    {{- include "librepod.labels" . | nindent 4 }}
+spec:
+  redirectRegex:
+    regex: https://baikal.libre.pod/.well-known/(card|cal)dav
+    replacement: https://baikal.libre.pod/dav.php/
+    permanent: true

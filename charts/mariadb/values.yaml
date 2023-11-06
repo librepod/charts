@@ -1,0 +1,30 @@
+image:
+  repository: mariadb
+  pullPolicy: IfNotPresent
+  tag: ""
+
+persistence:
+  config:
+    enabled: false
+  data:
+    enabled: true
+    type: pvc
+    mountPath: /var/lib/mysql
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    retain: true
+
+env:
+  MARIADB_ROOT_PASSWORD: ""
+  TZ: Europe/Moscow
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 3306
+        targetPort: 3306

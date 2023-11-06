@@ -1,0 +1,52 @@
+image:
+  repository: syncthing/syncthing
+  pullPolicy: IfNotPresent
+  tag: ""
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        port: 8384
+  listen:
+    enabled: true
+    ports:
+      listen:
+        enabled: true
+        port: 22000
+        protocol: TCP
+  listen-udp:
+    enabled: true
+    ports:
+      listen-udp:
+        enabled: true
+        port: 22000
+        protocol: UDP
+  discovery:
+    enabled: true
+    ports:
+      discovery:
+        enabled: true
+        port: 21027
+        protocol: UDP
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: "syncthing.libre.pod"
+
+dashboard:
+  expose: true
+  url: "https://syncthing.libre.pod"
+
+persistence:
+  data:
+    enabled: true
+    type: pvc
+    mountPath: /var/syncthing
+    readOnly: false
+    accessMode: ReadWriteOnce
+    size: 20Gi
+    retain: true

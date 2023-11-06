@@ -36,6 +36,21 @@ spec:
         expose: true
         exposedPort: 51820
         protocol: UDP
+      syncthing-listen:
+        port: 22000
+        expose: true
+        exposedPort: 22000
+        protocol: TCP
+      st-listen-udp:
+        port: 22000
+        expose: true
+        exposedPort: 22000
+        protocol: UDP
+      syncthing-discovery:
+        port: 21027
+        expose: true
+        exposedPort: 21027
+        protocol: UDP
     podAnnotations:
       prometheus.io/port: "8082"
       prometheus.io/scrape: "true"
