@@ -556,6 +556,15 @@ entries:
     version: 0.1.0
   librepod:
   - apiVersion: v2
+    created: "2023-11-10T20:05:47.183615988Z"
+    description: A Helm library chart for LibrePod specific Kubernetes clusters
+    digest: 53b2c809992411ec368ec5d133a9874e4ecf99c0c81a0e8a2b852309c0b9e8eb
+    name: librepod
+    type: library
+    urls:
+    - https://github.com/librepod/charts/releases/download/librepod-1.2.1/librepod-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
     created: "2022-12-29T17:09:33.972219924Z"
     description: A Helm library chart for LibrePod specific Kubernetes clusters
     digest: f955b94b4e6271d492e52f5e0befb66adf99df6af634dcac5338dc0e5e435ddd
@@ -1345,4 +1354,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-11-06T14:06:02.184681774Z"
+generated: "2023-11-10T20:05:47.183780688Z"
