@@ -32,10 +32,8 @@ metadata:
   name: {{ $ingressName }}
   labels:
     {{- include "librepod.labels" . | nindent 4 }}
-  {{- with $values.annotations }}
   annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
+    {{- tpl (toYaml $values.annotations) . | nindent 4 }}
 spec:
   entryPoints:
     - web
