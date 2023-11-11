@@ -5,6 +5,38 @@ entries:
       category: LibrePod System Apps
     apiVersion: v2
     appVersion: v0.107.29
+    created: "2023-11-11T17:37:47.632081292Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.1
+    - name: unbound
+      repository: https://librepod.github.io/charts
+      version: 0.3.0
+    description: Network-wide ads & trackers blocking DNS server
+    digest: 86dc520f854319f780ac8ef3e315433674cdbe1970c80f5cd40feb1d9972f0d3
+    home: https://github.com/librepod/charts/tree/master/charts/adguard-home
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/adguard-home.png
+    keywords:
+    - adguard
+    - adguard-home
+    - adblock
+    - ads
+    - dns
+    kubeVersion: '>=1.16.0-0'
+    name: adguard-home
+    sources:
+    - https://github.com/librepod/charts/tree/master/charts/adguard-home
+    - https://adguard.com/en/adguard-home/overview.html
+    - https://github.com/AdguardTeam/AdGuardHome
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/adguard-home-0.2.0/adguard-home-0.2.0.tgz
+    version: 0.2.0
+  - annotations:
+      category: LibrePod System Apps
+    apiVersion: v2
+    appVersion: v0.107.29
     created: "2023-06-04T13:39:41.035668204Z"
     dependencies:
     - name: librepod
@@ -1354,4 +1386,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-11-10T20:05:47.183780688Z"
+generated: "2023-11-11T17:37:47.632360713Z"
