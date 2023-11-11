@@ -32,3 +32,14 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           CR_SKIP_EXISTING: "true"
+
+      - name: Send telegram message on release
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_GROUP_ID }}
+          token: ${{ secrets.TELEGRAM_RELEASE_NOTIFIER_BOT_TOKEN }}
+          message: |
+            🚀 New chart version has just been released: ${{ github.ref }}
+
+
+            See changes here: https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}
