@@ -44,14 +44,11 @@ jobs:
     steps:
       - name: Send telegram message on release
         uses: appleboy/telegram-action@master
-        env: 
-          CHANGED_CHARTS: ${{ needs.release.outputs.changed_charts }}
-          CHART_VERSION: ${{ needs.release.outputs.chart_version }}
         with:
           to: ${{ secrets.TELEGRAM_GROUP_ID }}
           token: ${{ secrets.TELEGRAM_RELEASE_NOTIFIER_BOT_TOKEN }}
           message: |
-            🚀 New chart version has just been released: $CHANGED_CHARTS-$CHART_VERSION
+            🚀 New chart version has just been released: ${{ needs.release.outputs.changed_charts }}
 
 
-            See changes here: https://github.com/${{ github.repository }}/releases/tag/$CHANGED_CHARTS-$CHART_VERSION
+            See changes here: https://github.com/${{ github.repository }}/releases
