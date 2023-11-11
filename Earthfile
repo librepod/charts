@@ -1,4 +1,4 @@
-VERSION 0.6
+VERSION 0.7
 
 testChart:
   FROM earthly/dind:alpine
