@@ -238,6 +238,10 @@ configmap:
             url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt
             name: AdAway Default Blocklist
             id: 2
+          - enabled: true
+            url: https://github.com/blocklistproject/Lists/raw/master/adguard/ads-ags.txt
+            name: blocklistproject-lists
+            id: 3
         whitelist_filters: []
         user_rules: []
         dhcp:
