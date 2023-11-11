@@ -1,6 +1,6 @@
 dependencies:
 - name: librepod
   repository: https://librepod.github.io/charts
-  version: 1.2.0
-digest: sha256:1dcc99dc6525e660fe55ac3e87b1b36a4ca644b7728156d92f73371335e49290
-generated: "2023-02-12T20:02:37.750561025+03:00"
+  version: 1.2.1
+digest: sha256:58d797774bbae3fba01acf9e464f3a9ea3a313e5e2ce91abb5c8a29183689079
+generated: "2023-11-10T23:23:23.355804801+03:00"
