@@ -40,6 +40,13 @@ ingress:
     enabled: true
     hosts:
       - host: adguard.libre.pod
+    annotations:
+      gethomepage.dev/href: "https://adguard.libre.pod"
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/description: "{{ .Chart.Description }}"
+      gethomepage.dev/group: "{{ .Chart.Annotations.category }}"
+      gethomepage.dev/icon: adguard-home.png
+      gethomepage.dev/name: "{{ .Chart.Name }}"
 
 dashboard:
   expose: true
