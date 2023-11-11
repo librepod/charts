@@ -1,7 +1,5 @@
 # The 'hostIP' is supposed to be set upon chart installation:
 # helm install pihole --set hostIP="192.168.1.200"
-hostIP: 127.0.0.1
-
 image:
   repository: ghcr.io/benphelps/homepage
   pullPolicy: IfNotPresent
@@ -21,7 +19,6 @@ ingress:
     enabled: true
     hosts:
       - host: libre.pod
-      - host: "{{ .Values.hostIP }}"
 
 persistence:
   bookmarks:
