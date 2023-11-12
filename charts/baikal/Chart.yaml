@@ -1,7 +1,7 @@
 apiVersion: v2
 name: baikal
 description: The open source CardDAV, CalDAV and WebDAV server
-version: 1.1.0
+version: 1.2.0
 appVersion: 0.9.3-nginx
 kubeVersion: ">=1.16.0-0"
 type: application
@@ -18,7 +18,7 @@ sources:
 icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/baikal.png
 dependencies:
   - name: librepod
-    version: 1.2.0
+    version: 1.2.1
     repository: https://librepod.github.io/charts
 annotations:
   category: My Apps

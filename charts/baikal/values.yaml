@@ -20,6 +20,13 @@ ingress:
     # See templates/middleware.yaml for details.
     middlewares:
       - redirect-card-cal-dav
+    annotations:
+      gethomepage.dev/href: "https://baikal.libre.pod"
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/description: "{{ .Chart.Description }}"
+      gethomepage.dev/group: "{{ .Chart.Annotations.category }}"
+      gethomepage.dev/icon: baikal.png
+      gethomepage.dev/name: "{{ .Chart.Name }}"
 
 dashboard:
   expose: true
