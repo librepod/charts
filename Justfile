@@ -3,7 +3,7 @@
 @create-cluster:
   mkdir -p $(pwd)/.data
   k3d cluster create --config k3d-config.yaml
-  helm install homepage ./charts/homepage
+  # helm install homepage ./charts/homepage
   until [ -n "$(kubectl wait deployment -n kube-system traefik --for condition=Available=True)" ]; do sleep 5; done
   kubectl create -f ./charts/traefik/traefik-dashboard.yaml
   echo "🎉 k3d cluster is ready to use!"
