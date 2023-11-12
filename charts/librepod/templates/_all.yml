@@ -30,6 +30,4 @@ Main entrypoint for the librepod library chart. It will render all underlying te
 
   {{ include "librepod.ingressroute" . | nindent 0 }}
 
-  {{ include "librepod.forecastleapp" . | nindent 0 }}
-
 {{- end -}}
