@@ -3,12 +3,14 @@ VERSION 0.7
 testChart:
   FROM earthly/dind:alpine
 
-  ENV K3S_IMAGE=rancher/k3s:v1.25.3-k3s1
+  ENV K3S_VERSION=v1.25.3-k3s1
+  ENV CT_VERSION=v3.10.1
+  ENV K3D_VERSION=v5.6.0
 
   RUN apk add --no-cache curl bash git just
 
   # Install k3d tool
-  RUN curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.4.6 bash
+  RUN curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=$K3D_VERSION bash
 
   # Install kubectl
   RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
@@ -23,18 +25,18 @@ testChart:
   COPY Justfile k3d-config.yaml lintconf.yaml ct.yaml chart_schema.yaml .
 
   WITH DOCKER \
-    --pull quay.io/helmpack/chart-testing:v3.7.1 \
-    --pull $K3S_IMAGE
+    --pull quay.io/helmpack/chart-testing:$CT_VERSION \
+    --pull rancher/k3s:$K3S_VERSION
 
     RUN docker run \
           --network host \
           --workdir=/data \
-          --volume $(pwd):/data quay.io/helmpack/chart-testing:v3.7.1 ct lint \
+          --volume $(pwd):/data quay.io/helmpack/chart-testing:$CT_VERSION ct lint \
           --config ct.yaml \
         && just create-cluster \
         && docker run \
           --network host \
           --workdir=/data \
           --volume ~/.kube/config:/root/.kube/config:ro \
-          --volume $(pwd):/data quay.io/helmpack/chart-testing:v3.7.1 ct install --config ct.yaml
+          --volume $(pwd):/data quay.io/helmpack/chart-testing:$CT_VERSION ct install --config ct.yaml
   END
