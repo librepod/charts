@@ -1,6 +1,6 @@
 apiVersion: v2
 name: homepage
-description: | 
+description: |
   A modern (fully static, fast), secure (fully proxied), highly customizable application
   dashboard with integrations for more than 25 services and translations for over 15 languages.
   Easily configured via YAML files (or discovery via docker labels).
