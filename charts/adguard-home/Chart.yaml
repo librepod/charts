@@ -1,7 +1,7 @@
 apiVersion: v2
 name: adguard-home
 description: Network-wide ads & trackers blocking DNS server
-version: 0.1.0
+version: 0.2.0
 appVersion: v0.107.29
 kubeVersion: ">=1.16.0-0"
 type: application
@@ -19,7 +19,7 @@ sources:
 icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/adguard-home.png
 dependencies:
   - name: librepod
-    version: 1.2.0
+    version: 1.2.1
     repository: https://librepod.github.io/charts
   - name: unbound
     version: 0.3.0

@@ -3,7 +3,7 @@
 @create-cluster:
   mkdir -p $(pwd)/.data
   k3d cluster create --config k3d-config.yaml
-  helm install forecastle ./charts/forecastle
+  # helm install homepage ./charts/homepage
   until [ -n "$(kubectl wait deployment -n kube-system traefik --for condition=Available=True)" ]; do sleep 5; done
   kubectl create -f ./charts/traefik/traefik-dashboard.yaml
   echo "🎉 k3d cluster is ready to use!"
@@ -40,6 +40,10 @@ install-dry-run chart: (update-chart-deps chart)
     --set hostIP=$(kubectl get node -o=jsonpath='{.items[0].status.addresses[0].address}') \
     --debug \
     --dry-run
+
+upgrade chart:
+  helm upgrade -f ./charts/{{chart}}/values.yaml {{chart}} ./charts/{{chart}} \
+    --set hostIP=$(kubectl get node -o=jsonpath='{.items[0].status.addresses[0].address}') \
 
 uninstall chart:
   helm uninstall {{chart}}

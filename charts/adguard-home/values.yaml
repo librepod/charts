@@ -40,6 +40,13 @@ ingress:
     enabled: true
     hosts:
       - host: adguard.libre.pod
+    annotations:
+      gethomepage.dev/href: "https://adguard.libre.pod"
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/description: "{{ .Chart.Description }}"
+      gethomepage.dev/group: "{{ .Chart.Annotations.category }}"
+      gethomepage.dev/icon: adguard-home.png
+      gethomepage.dev/name: "{{ .Chart.Name }}"
 
 dashboard:
   expose: true
@@ -231,6 +238,10 @@ configmap:
             url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt
             name: AdAway Default Blocklist
             id: 2
+          - enabled: true
+            url: https://github.com/blocklistproject/Lists/raw/master/adguard/ads-ags.txt
+            name: blocklistproject-lists
+            id: 3
         whitelist_filters: []
         user_rules: []
         dhcp:
