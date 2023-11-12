@@ -1,0 +1,57 @@
+# The 'hostIP' is supposed to be set upon chart installation:
+# helm install pihole --set hostIP="192.168.1.200"
+image:
+  repository: ghcr.io/benphelps/homepage
+  pullPolicy: IfNotPresent
+  tag: ""
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 3000
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: libre.pod
+
+persistence:
+  bookmarks:
+    enabled: true
+    type: configMap
+    name: '{{ include "librepod.names.fullname" . }}-bookmarks'
+    mountPath: /app/config/bookmarks.yaml
+    subPath: bookmarks.yaml
+  services:
+    enabled: true
+    type: configMap
+    name: '{{ include "librepod.names.fullname" . }}-services'
+    mountPath: /app/config/services.yaml
+    subPath: services.yaml
+
+configmap:
+  bookmarks:
+    enabled: true
+    data:
+      bookmarks.yaml: |
+        {{- (.Files.Get "configmap/bookmarks.yaml") | nindent 4 }}
+  services:
+    enabled: true
+    data:
+      services.yaml: |
+        {{- (.Files.Get "configmap/services.yaml") | nindent 4 }}
+  settings:
+    enabled: true
+    data:
+      settings.yaml: |
+        {{- (.Files.Get "configmap/settings.yaml") | nindent 4 }}
+  widgets:
+    enabled: true
+    data:
+      widgets.yaml: |
+        {{- (.Files.Get "configmap/widgets.yaml") | nindent 4 }}
