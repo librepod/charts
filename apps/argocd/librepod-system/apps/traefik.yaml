@@ -25,7 +25,7 @@ spec:
         valueFiles:
           - $repo/apps/traefik/base/values.yaml
         releaseName: traefik
-    - repoURL: https://gitlab.com/qitsoft_tiger/messaging/devops/gitops.git
+    - repoURL: https://github.com/librepod/charts
       targetRevision: switch-to-argocd
       path: apps/traefik/base
   destination:

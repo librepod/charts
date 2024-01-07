@@ -6,16 +6,17 @@ metadata:
     argocd.argoproj.io/sync-options: PruneLast=true
     argocd.argoproj.io/sync-wave: "-2"
   name: librepod-system
+  namespace: argocd
 spec:
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: '*'
+      kind: '*'
   description: LibrePod cluster-wide system applications
   destinations:
-  - namespace: '*'
-    server: https://kubernetes.default.svc
+    - namespace: '*'
+      server: https://kubernetes.default.svc
   namespaceResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: '*'
+      kind: '*'
   sourceRepos:
-  - https://github.com/librepod/charts
+    - '*'
