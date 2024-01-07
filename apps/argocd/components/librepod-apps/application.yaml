@@ -17,9 +17,7 @@ spec:
   source:
     repoURL: https://github.com/librepod/charts
     targetRevision: switch-to-argocd
-    path: apps/argocd/components/librepod-system
-    directory:
-      recurse: true
+    path: apps/argocd/components/librepod-system/apps
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc

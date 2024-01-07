@@ -1,0 +1,65 @@
+# https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml
+deployment:
+  kind: DaemonSet # default is Deployment
+
+priorityClassName: "system-cluster-critical"
+tolerations:
+  - key: "CriticalAddonsOnly"
+    operator: "Exists"
+  - key: "node-role.kubernetes.io/control-plane"
+    operator: "Exists"
+    effect: "NoSchedule"
+  - key: "node-role.kubernetes.io/master"
+    operator: "Exists"
+    effect: "NoSchedule"
+
+providers:
+  kubernetesCRD:
+    allowCrossNamespace: true
+    allowExternalNameServices: true
+  kubernetesIngress:
+    publishedService:
+      enabled: true
+
+ingressRoute:
+  dashboard:
+    enabled: true
+    matchRule: Host(`traefik.libre.pod`)
+    entryPoints: ["websecure"]
+    annotations:
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/description: Traefik
+      gethomepage.dev/group: LibrePod System
+      gethomepage.dev/icon: traefik.png
+      gethomepage.dev/weight: "10"
+
+logs:
+  general:
+    level: INFO # INFO, DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
+  access:
+    enabled: true
+
+# -- Global command arguments to be passed to all traefik's pods
+globalArguments: []
+  # - "--global.checknewversion"
+  # - "--global.sendanonymoususage"
+experimental:
+  v3:
+    enabled: true
+
+ports:
+  web:
+    # Disabling the web --> websecure redirect because there were problems with
+    # getting a certificate from Letsencrypt. Because of the redirect, the resolver
+    # was thrown to https and could not resolve the challenge.
+    # Redirecto to websecure is a must in order to maintain mTLS
+    # redirectTo:
+    #   port: websecure
+    nodePort: 32080
+  websecure:
+    nodePort: 32443
+
+service:
+  type: NodePort
+  spec:
+    externalTrafficPolicy: Cluster
