@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: step-ca
+  namespace: argocd
+spec:
+  ignoreDifferences:
+    - group: argoproj.io
+      jsonPointers:
+        - /status
+      kind: Application
+  project: librepod-system
+  sources:
+    - repoURL: https://github.com/librepod/charts
+      targetRevision: switch-to-argocd
+      ref: repo
+    - repoURL: https://smallstep.github.io/helm-charts/
+      chart: step-certificates
+      targetRevision: 1.25.0
+      helm:
+        releaseName: step-certificates
+        valueFiles:
+          - $repo/apps/step-certificates/base/values.yaml
+          - $repo/apps/step-certificates/overlays/librepod/values.yaml
+    - repoURL: https://github.com/librepod/charts
+      targetRevision: switch-to-argocd
+      path: apps/step-certificates/overlays/librepod
+  destination:
+    namespace: step-ca
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true

@@ -1,0 +1,102 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-step-certificates
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  # The property `ttlSecondsAfterFinished` allows to delete the job automatically
+  # after a sepecified period. But in our case ArgoCD will take care of
+  # deletion of this job. We leave this param just in case.
+  ttlSecondsAfterFinished: 10
+  backoffLimit: 0
+  parallelism: 1
+  completions: 1
+  template:
+    metadata:
+      name: job-step-certificates
+    spec:
+      restartPolicy: Never
+      containers:
+      - command: ["/bin/sh"]
+        args: ["-c", "sleep 30000"]
+        env:
+          - name: NAMESPACE
+            value: step-ca
+        image: cr.step.sm/smallstep/step-ca:0.25.0
+        imagePullPolicy: IfNotPresent
+        name: job-step-certificates
+        ports:
+        - containerPort: 9000
+          name: https
+          protocol: TCP
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add:
+            - NET_BIND_SERVICE
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+        volumeMounts:
+        - mountPath: /home/step/certs
+          name: certs
+          readOnly: true
+        - mountPath: /home/step/config
+          name: config
+          readOnly: true
+        - mountPath: /home/step/secrets
+          name: secrets
+          readOnly: true
+        - mountPath: /home/step/secrets/passwords
+          name: ca-password
+          readOnly: true
+        - mountPath: /home/step/secrets/certificate-issuer
+          name: certificate-issuer
+          readOnly: true
+        - mountPath: /home/step/secrets/ssh-host-ca
+          name: ssh-host-ca-password
+          readOnly: true
+        - mountPath: /home/step/secrets/ssh-user-ca
+          name: ssh-user-ca-password
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      securityContext:
+        fsGroup: 1000
+        runAsGroup: 1000
+        runAsNonRoot: true
+        runAsUser: 1000
+      serviceAccount: default
+      serviceAccountName: default
+      volumes:
+      - name: certs
+        configMap:
+          defaultMode: 420
+          name: step-certificates-certs
+      - name: config
+        configMap:
+          defaultMode: 420
+          name: step-certificates-config
+      - name: secrets
+        secret:
+          defaultMode: 420
+          secretName: step-certificates-secrets
+      - name: ca-password
+        secret:
+          defaultMode: 420
+          secretName: step-certificates-ca-password
+      - name: certificate-issuer
+        secret:
+          defaultMode: 420
+          secretName: step-certificates-certificate-issuer-password
+      - name: ssh-host-ca-password
+        secret:
+          defaultMode: 420
+          secretName: step-certificates-ssh-host-ca-password
+      - name: ssh-user-ca-password
+        secret:
+          defaultMode: 420
+          secretName: step-certificates-ssh-user-ca-password

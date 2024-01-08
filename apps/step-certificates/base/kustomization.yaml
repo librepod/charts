@@ -1,0 +1,55 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+buildMetadata:
+- managedByLabel
+
+resources:
+
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-5"
+
+configMapGenerator:
+- name: step-certificates-config
+  files:
+  - ca.json
+  - default.json
+
+- name: step-certificates-certs
+  files:
+  - root_ca.crt
+  - intermediate_ca.crt 
+
+secretGenerator:
+- name: step-certificates-secrets
+  files:
+  - root_ca_key=root_ca.key
+  - intermediate_ca_key=intermediate_ca.key
+
+- name: step-certificates-ca-password
+  literals:
+    - password=reformer3-flashback-undaunted
+  type: smallstep.com/ca-password
+
+- name: step-certificates-provisioner-password
+  literals:
+    - password=reformer3-flashback-undaunted
+  type: smallstep.com/provisioner-password
+
+- name: step-certificates-certificate-issuer-password
+  literals:
+    - password=reformer3-flashback-undaunted
+  type: smallstep.com/certificate-issuer-password
+
+- name: step-certificates-ssh-host-ca-password
+  literals:
+    - password=reformer3-flashback-undaunted
+  type: smallstep.com/ssh-host-ca-password
+
+- name: step-certificates-ssh-user-ca-password
+  literals:
+    - password=reformer3-flashback-undaunted
+  type: smallstep.com/ssh-user-ca-password

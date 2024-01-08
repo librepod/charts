@@ -1,0 +1,52 @@
+{
+  "root": "/home/step/certs/root_ca.crt",
+  "federateRoots": [],
+  "crt": "/home/step/certs/intermediate_ca.crt",
+  "key": "/home/step/secrets/intermediate_ca_key",
+  "address": ":9000",
+  "dnsNames": [
+    "127.0.0.1",
+    "ca.libre.pod",
+    "step-certificates.step-ca",
+    "step-certificates.step-ca.svc.cluster.local"
+  ],
+  "logger": {
+    "format": "json"
+  },
+  "db": {
+    "type": "badgerv2",
+    "dataSource": "/home/step/db"
+  },
+  "authority": {
+    "enableAdmin": false,
+    "provisioners": [
+      {
+        "type": "JWK",
+        "name": "default-jwk",
+        "key": {
+          "use": "sig",
+          "kty": "EC",
+          "kid": "GBq-Dv3f-1V4W228bB_PiBvauuaZeBerFxgrEm3ZhRA",
+          "crv": "P-256",
+          "alg": "ES256",
+          "x": "t1b2d4cBG5QFEDNlzMQezBCO-pBgKDJruwXSb6rD7IA",
+          "y": "DJzAs-QqbYpr041FrlzW2ThdNX1u1Vjsb1RvJB6w7G0"
+        },
+        "encryptedKey": "eyJhbGciOiJQQkVTMi1IUzI1NitBMTI4S1ciLCJjdHkiOiJqd2sranNvbiIsImVuYyI6IkEyNTZHQ00iLCJwMmMiOjYwMDAwMCwicDJzIjoiM2hDVUNRZDg5TTVnbENmQTJvVEdSUSJ9.moIGW-rcKmwiVIWTp776bxmn1XqUIa_--8_OoxLoIHrydLigZEpTmA.tbgdqcQGZia1Ye7D.vCSKa82-buda2i69ElZUwJId1TqBxCo6MtYBDQWxw2Y46RrG8LWa0G_h20gx2iVfVBvozEfK1NCSeXVTodNll2pP43tJEaEOlS2s7qBdntg2VDo0yhYaK5VdBOzvAj9BlyqBELjpzNVxcXrCsRVHkhA8la6038UHX5XBaEzRcisP0SLth2VUyidiD-NvUeoAa4DO4JAs-O0hbY8LWTl2JozojL9ymnKN21uNvNeQClr6pVQTGnVYaEkWWGj2vat477EIFlfdBG2Q0-EcL3wzixrvWz8ezozA0rotvmkKhF0F7l_coiDPgbV5JeMP-XQMTYLtqa5T8JrVrmSLSoc.kNYSvTCE-HE-KUHIFi3oAg",
+        "options": {
+          "x509": {},
+          "ssh": {}
+        }
+      }
+    ]
+  },
+  "tls": {
+    "cipherSuites": [
+      "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
+      "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+    ],
+    "minVersion": 1.2,
+    "maxVersion": 1.3,
+    "renegotiation": false
+  }
+}

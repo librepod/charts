@@ -1,0 +1,6 @@
+{
+  "ca-url": "https://127.0.0.1",
+  "ca-config": "/home/step/config/ca.json",
+  "fingerprint": "255b5dc979e3566114a18a8bb41f884a0ae49c0e043e444f9cbd85f80aee34f1",
+  "root": "/home/step/certs/root_ca.crt"
+}
