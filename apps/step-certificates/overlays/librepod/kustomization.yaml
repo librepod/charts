@@ -4,3 +4,18 @@ kind: Kustomization
 resources:
 - ../../base
 - job.yaml
+- serviceaccount.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-5"
+
+configMapGenerator:
+- envs:
+  - job.env
+  name: cm-step-ca-bootstrap
+- files:
+  - step-ca-bootstrap.sh=job.sh
+  name: cm-step-ca-bootstrap-script

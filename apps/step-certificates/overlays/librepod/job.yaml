@@ -19,18 +19,15 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-      - command: ["/bin/sh"]
-        args: ["-c", "sleep 30000"]
-        env:
-          - name: NAMESPACE
-            value: step-ca
-        image: cr.step.sm/smallstep/step-ca:0.25.0
+      - image: cr.step.sm/smallstep/step-ca:0.25.0
         imagePullPolicy: IfNotPresent
         name: job-step-certificates
-        ports:
-        - containerPort: 9000
-          name: https
-          protocol: TCP
+        command: ["/bin/sh"]
+        args: ["-c", "sleep 30000"]
+        # args: ["/scripts/step-ca-bootstrap.sh"]
+        envFrom:
+          - configMapRef:
+              name: cm-step-ca-bootstrap
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -42,61 +39,69 @@ spec:
           runAsNonRoot: true
           runAsUser: 1000
         volumeMounts:
-        - mountPath: /home/step/certs
-          name: certs
-          readOnly: true
-        - mountPath: /home/step/config
-          name: config
-          readOnly: true
-        - mountPath: /home/step/secrets
-          name: secrets
-          readOnly: true
-        - mountPath: /home/step/secrets/passwords
-          name: ca-password
-          readOnly: true
-        - mountPath: /home/step/secrets/certificate-issuer
-          name: certificate-issuer
-          readOnly: true
-        - mountPath: /home/step/secrets/ssh-host-ca
-          name: ssh-host-ca-password
-          readOnly: true
-        - mountPath: /home/step/secrets/ssh-user-ca
-          name: ssh-user-ca-password
-          readOnly: true
+          - mountPath: /scripts
+            name: entrypoint
+            readOnly: true
+        # - mountPath: /home/step/certs
+        #   name: certs
+        #   readOnly: true
+        # - mountPath: /home/step/config
+        #   name: config
+        #   readOnly: true
+        # - mountPath: /home/step/secrets
+        #   name: secrets
+        #   readOnly: true
+        # - mountPath: /home/step/secrets/passwords
+        #   name: ca-password
+        #   readOnly: true
+        # - mountPath: /home/step/secrets/certificate-issuer
+        #   name: certificate-issuer
+        #   readOnly: true
+        # - mountPath: /home/step/secrets/ssh-host-ca
+        #   name: ssh-host-ca-password
+        #   readOnly: true
+        # - mountPath: /home/step/secrets/ssh-user-ca
+        #   name: ssh-user-ca-password
+        #   readOnly: true
       dnsPolicy: ClusterFirst
       securityContext:
         fsGroup: 1000
         runAsGroup: 1000
         runAsNonRoot: true
         runAsUser: 1000
-      serviceAccount: default
-      serviceAccountName: default
+      serviceAccountName: step-ca-bootstrap
       volumes:
-      - name: certs
-        configMap:
-          defaultMode: 420
-          name: step-certificates-certs
-      - name: config
-        configMap:
-          defaultMode: 420
-          name: step-certificates-config
-      - name: secrets
-        secret:
-          defaultMode: 420
-          secretName: step-certificates-secrets
-      - name: ca-password
-        secret:
-          defaultMode: 420
-          secretName: step-certificates-ca-password
-      - name: certificate-issuer
-        secret:
-          defaultMode: 420
-          secretName: step-certificates-certificate-issuer-password
-      - name: ssh-host-ca-password
-        secret:
-          defaultMode: 420
-          secretName: step-certificates-ssh-host-ca-password
-      - name: ssh-user-ca-password
-        secret:
-          defaultMode: 420
-          secretName: step-certificates-ssh-user-ca-password
+        - name: entrypoint
+          configMap:
+            name: cm-step-ca-bootstrap-script
+            items:
+              - key: step-ca-bootstrap.sh
+                path: step-ca-bootstrap.sh
+      # - name: certs
+      #   configMap:
+      #     defaultMode: 420
+      #     name: step-certificates-certs
+      # - name: config
+      #   configMap:
+      #     defaultMode: 420
+      #     name: step-certificates-config
+      # - name: secrets
+      #   secret:
+      #     defaultMode: 420
+      #     secretName: step-certificates-secrets
+      # - name: ca-password
+      #   secret:
+      #     defaultMode: 420
+      #     secretName: step-certificates-ca-password
+      # - name: certificate-issuer
+      #   secret:
+      #     defaultMode: 420
+      #     secretName: step-certificates-certificate-issuer-password
+      # - name: ssh-host-ca-password
+      #   secret:
+      #     defaultMode: 420
+      #     secretName: step-certificates-ssh-host-ca-password
+      # - name: ssh-user-ca-password
+      #   secret:
+      #     defaultMode: 420
+      #     secretName: step-certificates-ssh-user-ca-password
