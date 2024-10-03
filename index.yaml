@@ -1274,6 +1274,32 @@ entries:
   - annotations:
       category: My Apps
     apiVersion: v2
+    appVersion: 1.32.1-alpine
+    created: "2024-10-03T22:10:37.343650032Z"
+    dependencies:
+    - name: librepod
+      repository: https://librepod.github.io/charts
+      version: 1.2.0
+    description: 'Open source password management solutions for individuals, teams,
+      and business organizations '
+    digest: 384bee1974e06e32dcc7cc04f0b7bbef36bf0c8bc31e59a16b26d58513390d23
+    home: https://github.com/librepod/charts/tree/master/charts/vaultwarden
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/vaultwarden.png
+    keywords:
+    - bitwarden
+    - vaultwarden
+    - password
+    kubeVersion: '>=1.16.0-0'
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/librepod/charts/releases/download/vaultwarden-0.3.0/vaultwarden-0.3.0.tgz
+    version: 0.3.0
+  - annotations:
+      category: My Apps
+    apiVersion: v2
     appVersion: 1.27.0-alpine
     created: "2023-01-02T10:10:00.231902023Z"
     dependencies:
@@ -1467,4 +1493,4 @@ entries:
     urls:
     - https://github.com/librepod/charts/releases/download/wg-easy-1.0.0/wg-easy-1.0.0.tgz
     version: 1.0.0
-generated: "2023-11-12T07:35:36.667994843Z"
+generated: "2024-10-03T22:10:37.343753734Z"
