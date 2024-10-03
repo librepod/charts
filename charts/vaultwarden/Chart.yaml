@@ -3,8 +3,8 @@ name: vaultwarden
 description: |
   Open source password management solutions for individuals, teams,
   and business organizations
-version: 0.2.1
-appVersion: 1.27.0-alpine
+version: 0.3.0
+appVersion: 1.32.1-alpine
 kubeVersion: ">=1.16.0-0"
 type: application
 keywords:
