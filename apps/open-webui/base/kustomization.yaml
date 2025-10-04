@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+buildMetadata:
+- managedByLabel
+
+namespace: open-webui
+
+resources:
+  - namespace.yaml
+  - pvc.yaml
+  - ingressroute.yaml
+
+helmCharts:
+- name: open-webui
+  version: 8.8.0
+  releaseName: open-webui
+  namespace: open-webui
+  repo: https://open-webui.github.io/helm-charts
+  valuesFile: values.yaml

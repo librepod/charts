@@ -1,0 +1,16 @@
+# https://github.com/open-webui/helm-charts/blob/main/charts/open-webui/values.yaml
+
+ollama:
+  enabled: false
+
+pipelines:
+  enabled: false
+
+persistence:
+  enabled: true
+  existingClaim: "open-webui-pvc"
+
+extraEnvVars:
+    # Set default conenction for users and share admin models
+  - name: BYPASS_MODEL_ACCESS_CONTROL
+    value: "True"

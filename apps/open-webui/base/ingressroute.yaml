@@ -1,0 +1,23 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: open-webui
+  annotations:
+    gethomepage.dev/href: "https://open-webui.libre.pod"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: open-webui
+    gethomepage.dev/group: My Apps
+    gethomepage.dev/icon: open-webui.png
+    gethomepage.dev/weight: 10 # optional
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`open-webui.libre.pod`)
+      kind: Rule
+      services:
+        - name: open-webui
+          port: 80
+  tls:
+    secretName: tls-open-webui
